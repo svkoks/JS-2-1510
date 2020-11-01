@@ -31,7 +31,8 @@
 							@click="cartShown = !cartShown"></a>
 						<div class="cartPopup" v-show="cartShown">
 							<ul class="cartPopup__items" id="cartPopupItems">
-								<li class="cartPopup__item" v-for="(item, index) in cartItems">
+								<li class="cartPopup__item" v-for="(item, index) in cartItems"
+										:key="item.id">
 									<img :src="item.img" :alt="item.name"
 										class="cartPopup__itemImg">
 									<div class="cartPopup__itemDetails">
@@ -113,7 +114,7 @@
 				<p class="featured__subtitle">Shop for items based on what we featured
 					this week</p>
 				<div class="featured__items">
-					<article class="snippet" v-for="item in catalogItems">
+					<article class="snippet" v-for="item in catalogItems" :key="item.id">
 						<img :src="item.img" :alt="item.name" class="snippet__img">
 						<div class="snippet__hover">
 							<button class="snippet__addToCart"
