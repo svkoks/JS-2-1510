@@ -10,7 +10,7 @@ export default class ITEM {
     }
 
     render(){
-        return itemTypes[this.type]()
+        return itemTypes[this.type](this.item);
     }
 }
 
