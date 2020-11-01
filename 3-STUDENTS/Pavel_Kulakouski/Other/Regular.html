@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    input {
+        font-size: 60px;
+        margin: 10px;
+        width: 500px;
+        height: 70px;
+    }
+    p {
+        font-size: 25px;
+        margin: 10px;
+    }
+
+    </style>
+</head>
+<body>
+    <form>
+
+        <p> Имя содержит только буквы</p>
+        <input type="text" id="name"> <br>
+        <p>Телефон имеет вид +7(000)000-0000</p>
+        <input type="text" id="phone"> <br>
+        <p>E-mail имеет вид mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru</p>
+        <input type="text" id="email"> <br>
+        <p>Текст произвольный</p>
+        <input type="textarea" id="text"> <br>
+
+
+        <input type="submit" value="Send"> <br>
+
+    </form>
+
+
+
+
+    <script>
+        "use strict"
+        let formEl = document.querySelector('form');
+        let name = document.getElementById('name');
+        formEl.addEventListener('submit', function sendForm (event) {
+            let regName = /^[a-z]+$/;
+            let regPhone = /^\+7 /
+            if (!regName.test(name.value)) {
+               alert('NONE')
+               name.style.borderColor = 'red';
+               event.preventDefault();
+            } else if {
+
+            }
+
+
+        })
+
+    </script>
+    
+</body>
+</html>
