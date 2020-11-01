@@ -1,4 +1,4 @@
-import ITEM from './ITEM.js';
+import Item from './ITEM.js';
 
 export default class List {
     constructor(basket, container, url) {
@@ -27,7 +27,7 @@ export default class List {
         let htmlStr = '';
         let type = this.constructor.name.toLowerCase();
         this.items.forEach((item) => {
-            //htmlStr += new ITEM(item, type).render();
+            htmlStr += new Item(item, type).render();
         });
         this.container.innerHTML = htmlStr;
     }
