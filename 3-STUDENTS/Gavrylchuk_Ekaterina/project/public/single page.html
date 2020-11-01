@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href='../src/layout/style.css'>
+    <title>Product Page</title>
+    <link rel="stylesheet" href="../src/layout/style.css">
     <script src="https://kit.fontawesome.com/861689887d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/style.scss">
 </head>
 
 <body>
@@ -75,135 +74,117 @@
         </div>
     </div>
 
-    <!--КОРЗИНА-->
-    <div class="cart__shoppingCart container">
+    <!--СЛАЙДЕР-->
+    <div class="single__slider">
+        <a href="#"><i class="fas fa-chevron-left"></i></a>
 
-        <!--НАЗВАНИЯ СТОЛБЦОВ-->
-        <div class="shoppingCart-details">
-            <div class="shoppingCart-details-left">
-                <p>Product details</p>
-            </div>
+        <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SinglePage_Back.jpg">
 
-            <div class="shoppingCart-details-right">
-                <p>Unite price</p>
-                <p>Quantity</p>
-                <p>Shipping</p>
-                <p>Subtotal</p>
-                <p>Action</p>
-            </div>
-        </div>
-
-        <div class="line"></div>
-
-        <!--СОДЕРЖИМОЕ КОРЗИНЫ-->
-        <div class="shoppingCart-cart">
-
-            <div class="cart-row">
-                <div class="cart-row_left">
-                    <div class="cart-product cart-pic">
-                        <a href="#"><img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Cart_Item_1.png" alt="product"></a>
-                    </div>
-
-                    <div class="cart-text">
-                        <a href="#">Mango people t-shirt</a>
-                        <p>Color: <span>Red</span></p>
-                        <p>Size: <span>XII</span></p>
-                    </div>
-                </div>
-
-                <div class="cart-row-right">
-                    <div><p>$150</p></div>
-                    <div><input type="number" value="2"></div>
-                    <div><p>FREE</p></div>
-                    <div><p>300$</p></div>
-                    <div><a href="#"><i class="fas fa-times-circle"></i></a></div>
-                </div>
-            </div>
-            <div class="line"></div>
-
-            <div class="cart-row">
-                <div class="cart-row_left">
-                    <div class="cart-product cart-pic">
-                        <a href="#"><img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Cart_Item_2.jpg" alt="product"></a>
-                    </div>
-
-                    <div class="cart-text">
-                        <a href="#">Mango people t-shirt</a>
-                        <p>Color: <span>Red</span></p>
-                        <p>Size: <span>XII</span></p>
-                    </div>
-                </div>
-
-                <div class="cart-row-right">
-                    <div><p>$150</p></div>
-                    <div><input type="number" value="2"></div>
-                    <div><p>FREE</p></div>
-                    <div><p>300$</p></div>
-                    <div><a href="#"><i class="fas fa-times-circle"></i></a></div>
-                </div>
-            </div>
-            <div class="line"></div>
-
-            <div class="cart-row">
-                <div class="cart-row_left">
-                    <div class="cart-product cart-pic">
-                        <a href="#"><img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Cart_Item_3.png" alt="product"></a>
-                    </div>
-
-                    <div class="cart-text">
-                        <a href="#">Mango people t-shirt</a>
-                        <p>Color: <span>Red</span></p>
-                        <p>Size: <span>XII</span></p>
-                    </div>
-                </div>
-
-                <div class="cart-row-right">
-                    <div><p>$150</p></div>
-                    <div><input type="number" value="2"></div>
-                    <div><p>FREE</p></div>
-                    <div><p>300$</p></div>
-                    <div><a href="#"><i class="fas fa-times-circle"></i></a></div>
-                </div>
-            </div>
-            <div class="line"></div>
-
-        </div>
-
-        <!--КНОПКИ КОРЗИНЫ-->
-        <div class="shoppingCart-buttons">
-            <button>Clear shopping cart</button>
-            <button>Continue shopping</button>
-        </div>
-
+        <a href="#"><i class="fas fa-chevron-right"></i></a>
     </div>
 
-    <!--ФОРМЫ ОТПРАВКИ-->
-    <div class="cart__form container">
+    <!--ФОРМА ДЛЯ ДОБАВЛЕНИЯ В КОРЗИНУ-->
+    <form class="single__form container">
 
-        <form class="address">
-            <h3>Shipping Address</h3>
-            <input placeholder="Bangladesh">
-            <input placeholder="State">
-            <input placeholder="Postcode / Zip">
-            <button>Get a quote</button>
-        </form>
+        <div class="single-form__top">
 
-        <form class="discount">
-            <h3>Coupon discount</h3>
-            <p>Enter your coupon code if you have one</p>
-            <input placeholder="State" type="text">
-            <button>Apply coupon</button>
-        </form>
-
-        <form class="total">
             <div>
-                <p>Sub total <span>900$</span></p>
-                <p>Grand Total<span>900$</span></p>
+                <h2>Women collection</h2>
+                <div class="single-form-slider">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+                <h2>Moschino cheap and chic</h2>
+                <p>Compellingly actualize fully researched processes before proactive outsourcing. Progressively
+                    syndicate collaborative architectures before cutting-edge services. Completely visualize parallel
+                    core
+                    competencies rather than exceptional portals. </p>
             </div>
-            <div class="cart__line"></div>
-            <button formaction="checkout.html">Proceed to checkout</button>
-        </form>
 
+            <div>
+                <p>Material: <span>cotton</span></p>
+                <p>Designer: <span>BinBurhan</span></p>
+            </div>
+
+            <div>
+                <p>$561</p>
+                <div></div>
+            </div>
+
+        </div>
+
+        <div class="single-form__bottom">
+
+            <div>
+                <p>Choose color</p>
+                <div class="single__color">
+                    <div></div>
+                    <div><input type="text" placeholder="Red"></div>
+                    <a><i class="fas fa-angle-down"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <p>Choose size</p>
+                <div class="single__size">
+                    <div><input type="text" placeholder="XXL"></div>
+                    <div><i class="fas fa-angle-down"></i></div>
+                </div>
+            </div>
+
+            <div>
+                <p>Quantity</p>
+                <div class="single__quantity">
+                    <div><input type="text" placeholder="2"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+            <div class="single-addToCart">
+                <a href="#">
+                    <div class="addToCart-content">
+                        <div>
+                            <img src="../src/assets/img/icon_cart_pinc.svg">
+                            <div>
+                                <img src="../src/assets/img/icon_cart_white.svg">
+                            </div>
+                        </div>
+                        <p>Add to Cart</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </form>
+
+    <!--СВЯЗАННЫЕ ПРОДУКТЫ-->
+    <div class="single__others container">
+        <div><h2>You may like also</h2></div>
+        <div class="single__products container">
+            <a href="#">
+                <div><img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SinglePage_1.png"></div>
+                <div><p>BLAZE LEGGINGS</p>
+                    <p>$52.00</p></div>
+            </a>
+            <a href="#">
+                <div><img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SinglePage_2.png"></div>
+                <div><p>BLAZE LEGGINGS</p>
+                    <p>$52.00</p></div>
+            </a>
+            <a href="#">
+                <div><img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SinglePage_3.png"></div>
+                <div><p>BLAZE LEGGINGS</p>
+                    <p>$52.00</p></div>
+            </a>
+            <a href="#">
+                <div><img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SinglePage_4.jpg"></div>
+                <div><p>BLAZE LEGGINGS</p>
+                    <p>$52.00</p></div>
+            </a>
+
+        </div>
     </div>
 
        <!--SUBSCRIBE-->
@@ -323,7 +304,6 @@
     </div>
 
 </footer>
-
 
 </body>
 

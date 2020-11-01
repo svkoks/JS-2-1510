@@ -1,232 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main Title</title>
+    <link rel="stylesheet" href="../src/layout/style.css">
+    <script src="https://kit.fontawesome.com/861689887d.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="header container">
+
+    <!--HEADER-->
+    <header class="header container">
+
         <div class="header__left">
-            <a class="header__logo" href="index.html">
-                <img src="../src/assets/img/logo.png" alt="logo">bran <span>d</span>
-            </a>
-            <form class="header__search">
-                <a href="#" class="header__browse">Browse <i class="fas fa-caret-down"></i></a>
-                    <input type="text" placeholder="Search for item">
-                    <button class="header__search-button"><i class="fas fa-search"></i></button>
+            <a class="header__logo" href="index.html"><img src="../src/assets/img/icon_logo.png"
+                    alt="logo">Bran<span>d</span></a>
+            <form class="header__search" method="get">
+
+                <div class="header__browse">
+                    <a href="#">
+                        Browse <i class="fas fa-caret-down header__caretBrowse"></i>
+                    </a>
+                </div>
+
+                <input class="search" name="search" placeholder="Search for item..." type="text">
+                <div>
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
             </form>
         </div>
+
         <div class="header__right">
-            <a href="#" class="header__cart" id="toggle-basket">
-                <div id="cart-badge" class="header__cart-badge">0</div>
-                <img src="../src/assets/img/cart.png" alt="card" class="header__cart-img">
+            <a class="header__cart" href="#" id="basket">
+                <div>
+                    <img class="cart1" src="../src/assets/img/icon_cart_black.svg" alt="cart">
+                    <img class="cart2" src="../src/assets/img/icon_cart_pinc.svg" alt="cart">
+                </div>
             </a>
-            <div class="drop-cart hidden">
+            <div class="drop_cart hidden">
                 <div id="basket">
 
                 </div>
-                <div class="drop-cart__total">
-                    <span class="drop-cart__total-name">TOTAL</span>
-                    <span id="basket-total" class="drop-cart__total-sum">$500.00</span>
+                <div class="drop_cart__total">
+                    <p class="drop_cart__total_text">TOTAL <span id="basket__sum" class="drop_cart_sum">300$</span></p>
                 </div>
-                <a id="checkout-button" onclick="return false" href="checkout.html" class="drop-cart__button">Checkout</a>
-                <a id="go-cart" href="shopping-cart.html" class="drop-cart__button">Go to cart</a>
+                <a id="drop_button" class="drop_cart_checkout" href="#">Checkout</a>
+                <a id="drop_button" class="drop_cart_goToCart" href="#">Go to cart</a>
             </div>
 
-            <a href="#" class="button">My Account<i class="fas fa-caret-down"></i></a>
-            <a href="#" class="icon-user"><i class="fas fa-user-alt"></i></a>
+            <a class="header__account-bar" href="#">
+                <div>My Account <i class="fas fa-caret-down header__caretAccount"></i></div>
+            </a>
         </div>
-    </div>
-    <div class="header_line"></div>
-    <div class="topNav">
-        <a href="product.html">Home</a>
-        <a href="product.html">Man</a>
-        <a href="product.html">Women</a>
-        <a href="product.html">Kids</a>
-        <a href="product.html">Accessories</a>
-        <a href="product.html">Featured</a>
-        <a href="product.html">Hot Deals </a>
-    </div>
-    <div class="image-frame">
-        <div class="container second-block">
-            <div class="forBorder">
-                <div class="theBrand">The Brand</div>
-                <div class="ofLuxerious">of luxerious <span>fashion</span></div>
+    </header>
+
+    <div class="line"></div>
+
+    <!--НАВИГАЦИЯ-->
+    <nav class="topNav">
+        <a href="index.html">Home</a>
+        <a href="#">Man</a>
+        <a href="#">Woman</a>
+        <a href="#">Kids</a>
+        <a href="#">Accoseries</a>
+        <a href="#">Featured</a>
+        <a href="#">Hot Deals</a>
+    </nav>
+
+    <main>
+        <!--ВЕРХНИЙ БАННЕР-->
+        <div class="index__topBanner">
+            <div class="topBanner-content container">
+                <div class="topBanner-text">
+                    <div>
+                        <h1>The brand</h1>
+                    </div>
+                    <div>
+                        <h2>Of luxurious <span>fashion</span></h2>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container hot-offers">
-       <div class="hot-offers__left">
-            <a class="hot-offers__square">
-                <img src="../src/assets/img/Layer%2030.jpg" alt="">
-                <div class="hot-offers__text">
-                    <div class="hot-offers__upper-text">
-                        hot deal
+
+        <!--СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ/СКИДКИ-->
+        <div class="index__specialOffers">
+            <div class="specialOffers-content container">
+
+                <div class="specialOffers-offer">
+                    <div>
+                        <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SpecialOffers_1.jpg"
+                            alt="For men">
                     </div>
-                    <div class="hot-offers__under-text">
-                        for men
-                    </div>
-                </div>
-            </a>
-            <a class="hot-offers__square">
-                <img src="../src/assets/img/Layer%2037.jpg" alt="">
-                <div class="hot-offers__text">
-                    <div class="hot-offers__upper-text">
-                        luxirous &amp; trendy
-                    </div>
-                    <div class="hot-offers__under-text">
-                        accesories
+
+                    <div>
+                        <a href="product.html">
+                            <p>Hot deal<span>For men</span></p>
+                        </a>
                     </div>
                 </div>
-            </a>
-        </div>
-        <div class="hot-offers__right">
-            <a class="hot-offers__square">
-                <img src="../src/assets/img/Layer%2032.jpg" alt="">
-                <div class="hot-offers__text">
-                    <div class="hot-offers__upper-text">
-                        30% offer
+
+                <div class="specialOffers-offer">
+                    <div class="wallet">
+                        <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SpecialOffers_2.jpg"
+                            alt="wallet">
                     </div>
-                    <div class="hot-offers__under-text">
-                        women
-                    </div>
-                </div>
-            </a>
-            <a class="hot-offers__square">
-                <img src="../src/assets/img/Layer%2031.jpg" alt="">
-                <div class="hot-offers__text">
-                    <div class="hot-offers__upper-text">
-                        new arrivals
-                    </div>
-                    <div class="hot-offers__under-text">
-                        for kids
+
+                    <div>
+                        <a href="#">
+                            <p>Luxurious & trendy<span>Accessories</span></p>
+                        </a>
                     </div>
                 </div>
-            </a>
-        </div>
-    </div>
-    <div class="container featured-items">
-        <div class="featured-items__title">
-            <h2>Featured Items</h2>
-            <h4>Shop for items based on what we featured in this week</h4>
-        </div>
-        <div id="catalog">
+
+                <div class="specialOffers-offer">
+
+                    <div><img
+                            src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SpecialOffers_3.jpg"
+                            alt="For women"></div>
+
+                    <div>
+                        <a href="single%20page.html">
+                            <p>30% offer<span>Women</span></p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="specialOffers-offer">
+                    <div>
+                        <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SpecialOffers_4.jpg"
+                            alt="For kids">
+                    </div>
+
+                    <div>
+                        <a href="#">
+                            <p>New arrivals<span>For kids</span></p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
-        <div class="featured-items__undertitle">
-            <a href="#">Browse All Product <i class="fas fa-long-arrow-alt-right"></i></a>
-        </div>
-    </div>  <!-- End of div.featured-items-->
-    <div class="container offer-women">
-       <div class="offer-women__dicount">
-           <h2>30% <span>offer</span></h2>
-           <h3>for women</h3>
-       </div>
-        <div class="offer-women__bonus">
-            <div class="offer-women__pic"><img src="../src/assets/img/car.png" alt=""></div>
-            <div class="offer-women__text">
-                <h3>Free Delivery</h3>
-                <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+
+        <!--FEATURED ITEMS-->
+        <div class="index__featured">
+
+            <div class="featured-text">
+                <h2>Featured Items</h2>
+                <p>Shop for items based on what we featured in this week</p>
+            </div>
+
+            <div class="featured-products container">
+                <div class="featured-item">
+
+                    <div class="featured-picture">
+                        <a href="#">
+                            <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_1.jpg"
+                                alt="product-1">
+                            <p>Mango People T-shirt</p>
+                            <p>$52.00</p>
+                        </a>
+                    </div>
+
+                    <div class="featured-hover">
+                        <div class="hover-picture">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_Back.png"
+                                    alt="background">
+                                <p>Mango People T-shirt</p>
+                                <p>$52.00</p>
+                            </a>
+                        </div>
+
+                        <div class="button">
+                            <a href="#">
+                                <div><img src="../src/assets/img/icon_cart_white.svg">
+                                    <div><img src="../src/assets/img/icon_cart_pinc.svg"></div>
+                                </div>
+                                Add to Cart
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="featured-item">
+
+                    <div class="featured-picture">
+                        <a href="#">
+                            <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_2.jpg"
+                                alt="product-1">
+                            <p>Mango People T-shirt</p>
+                            <p>$52.00</p>
+                        </a>
+                    </div>
+
+                    <div class="featured-hover">
+                        <div class="hover-picture">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_Back.png"
+                                    alt="background">
+                                <p>Mango People T-shirt</p>
+                                <p>$52.00</p>
+                            </a>
+                        </div>
+
+                        <div class="button">
+                            <a href="#">
+                                <div><img src="../src/assets/img/icon_cart_white.svg">
+                                    <div><img src="../src/assets/img/icon_cart_pinc.svg"></div>
+                                </div>
+                                Add to Cart
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="featured-item">
+
+                    <div class="featured-picture">
+                        <a href="#">
+                            <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_3.jpg"
+                                alt="product-1">
+                            <p>Mango People T-shirt</p>
+                            <p>$52.00</p>
+                        </a>
+                    </div>
+
+                    <div class="featured-hover">
+                        <div class="hover-picture">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_Back.png"
+                                    alt="background">
+                                <p>Mango People T-shirt</p>
+                                <p>$52.00</p>
+                            </a>
+                        </div>
+
+                        <div class="button">
+                            <a href="#">
+                                <div><img src="../src/assets/img/icon_cart_white.svg">
+                                    <div><img src="../src/assets/img/icon_cart_pinc.svg"></div>
+                                </div>
+                                Add to Cart
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="featured-item">
+
+                    <div class="featured-picture">
+                        <a href="#">
+                            <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_4.jpg"
+                                alt="product-1">
+                            <p>Mango People T-shirt</p>
+                            <p>$52.00</p>
+                        </a>
+                    </div>
+
+                    <div class="featured-hover">
+                        <div class="hover-picture">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_Back.png"
+                                    alt="background">
+                                <p>Mango People T-shirt</p>
+                                <p>$52.00</p>
+                            </a>
+                        </div>
+
+                        <div class="button">
+                            <a href="#">
+                                <div><img src="../src/assets/img/icon_cart_white.svg">
+                                    <div><img src="../src/assets/img/icon_cart_pinc.svg"></div>
+                                </div>
+                                Add to Cart
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="featured-item">
+
+                    <div class="featured-picture">
+                        <a href="#">
+                            <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_5.jpg"
+                                alt="product-1">
+                            <p>Mango People T-shirt</p>
+                            <p>$52.00</p>
+                        </a>
+                    </div>
+
+                    <div class="featured-hover">
+                        <div class="hover-picture">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_Back.png"
+                                    alt="background">
+                                <p>Mango People T-shirt</p>
+                                <p>$52.00</p>
+                            </a>
+                        </div>
+
+                        <div class="button">
+                            <a href="#">
+                                <div><img src="../src/assets/img/icon_cart_white.svg">
+                                    <div><img src="../src/assets/img/icon_cart_pinc.svg"></div>
+                                </div>
+                                Add to Cart
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="featured-item">
+
+                    <div class="featured-picture">
+                        <a href="#">
+                            <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_6.jpg"
+                                alt="product-1">
+                            <p>Mango People T-shirt</p>
+                            <p>$52.00</p>
+                        </a>
+                    </div>
+
+                    <div class="featured-hover">
+                        <div class="hover-picture">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_Back.png"
+                                    alt="background">
+                                <p>Mango People T-shirt</p>
+                                <p>$52.00</p>
+                            </a>
+                        </div>
+
+                        <div class="button">
+                            <a href="#">
+                                <div><img src="../src/assets/img/icon_cart_white.svg">
+                                    <div><img src="../src/assets/img/icon_cart_pinc.svg"></div>
+                                </div>
+                                Add to Cart
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="featured-item">
+
+                    <div class="featured-picture">
+                        <a href="#">
+                            <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_7.jpg"
+                                alt="product-1">
+                            <p>Mango People T-shirt</p>
+                            <p>$52.00</p>
+                        </a>
+                    </div>
+
+                    <div class="featured-hover">
+                        <div class="hover-picture">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_Back.png"
+                                    alt="background">
+                                <p>Mango People T-shirt</p>
+                                <p>$52.00</p>
+                            </a>
+                        </div>
+
+                        <div class="button">
+                            <a href="#">
+                                <div><img src="../src/assets/img/icon_cart_white.svg">
+                                    <div><img src="../src/assets/img/icon_cart_pinc.svg"></div>
+                                </div>
+                                Add to Cart
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="featured-item">
+
+                    <div class="featured-picture">
+                        <a href="#">
+                            <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_8.jpg"
+                                alt="product-1">
+                            <p>Mango People T-shirt</p>
+                            <p>$52.00</p>
+                        </a>
+                    </div>
+
+                    <div class="featured-hover">
+                        <div class="hover-picture">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Featured_Back.png"
+                                    alt="background">
+                                <p>Mango People T-shirt</p>
+                                <p>$52.00</p>
+                            </a>
+                        </div>
+
+                        <div class="button">
+                            <a href="#">
+                                <div><img src="../src/assets/img/icon_cart_white.svg">
+                                    <div><img src="../src/assets/img/icon_cart_pinc.svg"></div>
+                                </div>
+                                Add to Cart
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="featured-browse">
+                <a href="#">
+                    Browse All Product
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </a>
             </div>
         </div>
-        <div class="offer-women__bonus">
-            <div class="offer-women__pic"><img src="../src/assets/img/proc.png" alt=""></div>
-            <div class="offer-women__text">
-                <h3>Sales &amp; discounts</h3>
-                <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+
+        <!--НИЖНИЙ БАННЕР-->
+        <div class="index__lowerBanner container">
+
+            <div class="lowerBanner-content">
+
+                <div class="lowerBanner-left">
+                    <div><img
+                            src='https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Lower_Banner_Upper.png'
+                            alt="lowerBanner"></div>
+                    <div class="lowerBanner-left-text">
+                        <h2>30% <span>OFFER</span></h2>
+                        <h2>FOR WOMEN</h2>
+                    </div>
+                </div>
+
+                <div class="lowerBanner-right">
+
+                    <div class="lowerBanner-right-paragraph">
+                        <div><img src="../src/assets/img/icon_car.svg"></div>
+                        <div>
+                            <h3>Free Delivery</h3>
+                            <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with
+                                extensive
+                                models.</p>
+                        </div>
+                    </div>
+                    <div class="lowerBanner-right-paragraph">
+                        <div><img src="../src/assets/img/icon_sale.svg"></div>
+                        <div>
+                            <h3>Sales & discounts</h3>
+                            <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with
+                                extensive
+                                models.</p>
+                        </div>
+                    </div>
+                    <div class="lowerBanner-right-paragraph">
+                        <div><img src="../src/assets/img/icon_crown.svg"></div>
+                        <div>
+                            <h3>Quality assurance</h3>
+                            <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with
+                                extensive
+                                models.</p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
-        <div class="offer-women__bonus">
-            <div class="offer-women__pic"><img src="../src/assets/img/corona.png" alt=""></div>
-            <div class="offer-women__text">
-                <h3>Quality assurance</h3>
-                <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+
+        <!--SUBSCRIBE-->
+        <div class="subscribe">
+            <div class="subscribe__back">
+                <div class="subscribe__content container">
+                    <div class="subscribe__left">
+
+                        <div><img
+                                src="https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Subscribe_Face.png"
+                                alt="face"></div>
+                        <div>
+                            <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+                                a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</p>
+                            <p>Bin Burhan</p>
+                            <p>Dhaka, Bd</p>
+                            <div class="subscribe__slide">
+                                <a href="#"></a>
+                                <a href="#"></a>
+                                <a href="#"></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="subscribe__line"></div>
+
+                    <div class="subscribe__right">
+                        <div class="subscribe__form">
+                            <h2>Subscribe</h2>
+                            <p>for our newsletter promotion</p>
+                            <div class="subscribe__button">
+
+                                <input type="text" placeholder="Enter Your Email">
+                                <button><a href="#" value="Subsrcibe" type="submit">Subscribe</a></button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </div><!-- End of .offer-women -->
-    <div class="subscibe"><div class="subscibe-shadow">
-       <div class="container subscibe_wrapper">
-        <div class="subscribe-left">
-            <img src="../src/assets/img/subsribe-face.png" alt="face">
-            <div>
-               <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi, 
-a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</p>
-               <h4>Bin Burhan</h4>
-               <p>Dhaka, Bd</p>
-               <div class="subscribe-pagination">
-                   <a href="#"></a>
-                   <a href="#"></a>
-                   <a href="#"></a>
-               </div>
-            </div>
-        </div>
-        <div class="subscribe-border"></div>
-        <div class="subscribe-right">
-            <h3>subscribe</h3>
-            <h4>for our newletter and promotion</h4>
-            <form action="">
-                <input type="text" placeholder="Enter your Email">
-                <button>Subscribe</button>
-            </form>
-        </div>
-       </div> <!-- End of .subscibe_wrapper -->
-    </div></div> <!-- End of .subscibe -->
-    <div class="container footer-menu">
-        <div class="footer-menu__left">
-            <a class="header__logo" href="index.html">
-                <img src="../src/assets/img/logo.png" alt="logo">bran <span>d</span>
-            </a>
-            <p>
-                Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships.
-            </p>
-            <p>
-                Efficiently plagiarize 24/365 action items and focused infomediaries. Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.
-            </p>
 
         </div>
-        <div class="footer-menu__right">
-            <div class="footer-menu__right-item">
-                <h3>company</h3>
-                <a href="#">Home</a>
-                <a href="#">Shop</a>
-                <a href="#">About</a>
-                <a href="#">How It Works</a>
-                <a href="#">Contact</a>
+
+    </main>
+
+
+    <footer>
+
+        <!--НИЖНЕЕ МЕНЮ-->
+        <div class="bottomMenu container">
+            <div class="bottomMenu-left">
+                <div>
+                    <a class="bottomMenu-logo" href="index.html"><img src="../src/assets/img/icon_logo.png"
+                            alt="logo">Bran<span>d</span></a>
+                </div>
+
+                <div>
+                    <p>
+                        Objectively transition extensive data rather than cross functional solutions. Monotonectally
+                        syndicate
+                        multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array
+                        of
+                        processes and cross-unit partnerships.<br><br>
+
+                        Efficiently plagiarize 24/365 action items and focused infomediaries.
+                        Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.
+                    </p>
+                </div>
             </div>
-            <div class="footer-menu__right-item">
-                <h3>information</h3>
-                <a href="#">Terms and Conditions</a>
-                <a href="#">Privacy Polocy</a>
-                <a href="#">How to Buy</a>
-                <a href="#">How to Sell</a>
-                <a href="#">Promotion</a>
-            </div>
-            <div class="footer-menu__right-item">
-                <h3>shop category</h3>
-                <a href="#">Men</a>
-                <a href="#">Women</a>
-                <a href="#">Child</a>
-                <a href="#">Apparel</a>
-                <a href="#">Browse All</a>
-            </div>
-        </div>  <!-- End of footer-menu__right -->
-    </div> <!-- End of footer-menu -->
-    <div class="footer">
-        <div class="container footer_center">
-            <div>
-                &copy; 2017  Brand  All Rights Reserved.
-            </div>
-            <div>
-                <a href="#" class="footer__social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="footer__social"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="footer__social"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="footer__social"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#" class="footer__social"><i class="fab fa-google-plus-g"></i></a>
-            </div>
+
+            <nav class="bottomMenu-right">
+                <div>
+                    <h3><a href="#">COMPANY</a></h3>
+                    <a href="#">Home</a>
+                    <a href="#">Shop</a>
+                    <a href="#">About</a>
+                    <a href="#">How It Works</a>
+                    <a href="#">Contact</a>
+                </div>
+
+                <div>
+                    <h3><a href="#">INFORMATION</a></h3>
+                    <a href="#">Terms & Condition</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">How to Buy</a>
+                    <a href="#">How to Sell</a>
+                    <a href="#">Promotion</a>
+                </div>
+
+                <div>
+                    <h3><a href="#">SHOP CATEGORY</a></h3>
+                    <a href="#">Men</a>
+                    <a href="#">Women</a>
+                    <a href="#">Child</a>
+                    <a href="#">Apparel</a>
+                    <a href="#">Browse All</a>
+                </div>
+            </nav>
         </div>
-    </div>
+
+        <!--ФУТЕР-->
+        <div class="footer">
+            <div class="footer-content container">
+                <div class="footer-left">
+                    <p>© 2017 Brand All Rights Reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
 
 </body>
+
 </html>
