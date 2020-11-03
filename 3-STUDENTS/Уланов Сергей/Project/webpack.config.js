@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     entry: './src/index.js', //путь по умолчанию
@@ -20,12 +21,19 @@ module.exports = {
             new MiniCssExtractPlugin({
                 filename: 'css/[name].css',
                 chunkFilename: '[id].css'
-            })],
+            }),
+            new VueLoaderPlugin()
+        ],
+            
     module: {
         rules: [
             {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            },
+            {
+                test: /\.vue$/i,
+                use: [vue-loader],
             },
             {
                 test: /\.(png|jpg|svg|gif)$/i,
