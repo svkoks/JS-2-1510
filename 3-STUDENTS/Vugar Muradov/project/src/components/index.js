@@ -1,8 +1,24 @@
-import { Basket } from './basket.js';
-import { Catalog } from './catalog.js';
-
-
 export default () => {
-    let basket = new Basket();
-    let catalog = new Catalog(basket);
-}
+        const app = new Vue({
+            el: '#app', 
+            data: {
+                catalog: {
+                    items: [], 
+                    url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json'
+                }
+            }, 
+            methods: {
+                get(url) {
+                    return fetch(url).then(data => data.json())
+                }
+            }, 
+            async mounted() {
+                try {
+                    this.catalog.items = await this.get(this.catalog.url);
+                }
+                catch (err) {
+                    console.log(err);
+                }
+            }
+        })
+    }
