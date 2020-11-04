@@ -20,13 +20,13 @@
                 </form>
             </div>
             <div class="header__right">
-                <a href="#" class="header__cart" id="toggle-basket">
+                <a href="#" class="header__cart" id="toggle-basket" @click="show = !show">
                     <div id="cart-badge" class="header__cart-badge">0</div>
                     <img src="../src/assets/img/cart.png" alt="card" class="header__cart-img">
                 </a>
-                <div class="drop-cart hidden">
+                <div class="drop-cart" v-show="show">
                     <div id="basket">
-                         <div class="drop-cart__product" v-for="item in items">
+                         <div class="drop-cart__product" v-for="item in basket_items" :key="item.productId">
                             <a href="product.html" class="drop-cart__product-link">
                                 <img :src="item.productImg"
                                     alt="product" class="drop-cart__product-img">
@@ -38,12 +38,12 @@
                                     <span class="drop-cart__product-sum"> = ${{item.productPrice * item.amount}}</span>
                                 </div>
                             </div>
-                            <a href="#" :data-id="item.productId" name="remove" class="drop-cart__product-close far fa-times-circle"></a>
+                            <a href="#" @click="remove(id)" id="item.productId" name="remove" class="drop-cart__product-close far fa-times-circle" ></a>
                         </div>
                     </div>
-                    <div class="drop-cart__total">
+                    <div class="drop-cart__total" >
                         <span class="drop-cart__total-name">TOTAL</span>
-                        <span id="basket-total" class="drop-cart__total-sum">$500.00</span>
+                        <span id="basket-total" class="drop-cart__total-sum">${{sumCost}}</span>
                     </div>
                     <a id="checkout-button" onclick="return false" href="checkout.html" class="drop-cart__button">Checkout</a>
                     <a id="go-cart" href="shopping-cart.html" class="drop-cart__button">Go to cart</a>
@@ -127,12 +127,12 @@
                 <h4>Shop for items based on what we featured in this week</h4>
             </div>
             <div id="catalog">
-                <div class="hot-offer" v-for="item in catalog_items">
+                <div class="hot-offer" v-for="item in catalog_items" :key="item.productId">
                     <div class="hot-offer__shadow">
                         <img :src="item.productImg" alt="">
                         <div class="hot-offer__hover">
                             <div class="hot-offer__square">
-                                <button><img src="../src/assets/img/kart_white.png" alt="order">Add to Cart</button>
+                                <button name="add" @click="add(item)"><img src="../src/assets/img/kart_white.png" alt="order">Add to Cart</button>
                             </div>
                         </div>
                     </div>
