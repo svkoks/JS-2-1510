@@ -42,20 +42,33 @@
         "use strict"
         let formEl = document.querySelector('form');
         let name = document.getElementById('name');
+        let phone = document.getElementById('phone');
+        let email = document.getElementById('email');
+        let text = document.getElementById('text');
+
         formEl.addEventListener('submit', function sendForm (event) {
-            let regName = /^[a-z]+$/;
-            let regPhone = /^\+7 /
+            let regName = /^[a-zA-Z]+$/;
+            let regPhone = /^\+\d{1}\(?\d{3}\)?\d{3}\-?\d{4}$/;
+            let regEmail = /[a-zA-Z_\.\-0-9]+@[a-z]+\.ru$/;
+            let regText = /[a-zA-Z]/;
             if (!regName.test(name.value)) {
-               alert('NONE')
+               alert('NONE');
                name.style.borderColor = 'red';
                event.preventDefault();
-            } else if {
-
+            } else if (!regPhone.test(phone.value)) {
+               alert('NONE phone');
+               phone.style.borderColor = 'red';
+               event.preventDefault();
+            } else if (!regEmail.test(email.value)) {
+               alert('NONE email');
+               email.style.borderColor = 'red';
+               event.preventDefault();
+            } else if (!regText.test(text.value)) {
+               alert('only english text');
+               text.style.borderColor = 'red';
+               event.preventDefault();
             }
-
-
         })
-
     </script>
     
 </body>
