@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<div id="app">
     <div class="header container">
         <div class="header__left">
             <a class="header__logo" href="index.html">
@@ -20,13 +21,36 @@
             </form>
         </div>
         <div class="header__right">
-            <a href="#" class="header__cart" id="toggle-basket">
+            <a
+                    href="#"
+                    class="header__cart"
+                    id="toggle-basket"
+                    @click="basket.show = !basket.show"
+            >
                 <div id="cart-badge" class="header__cart-badge">0</div>
                 <img src="../src/assets/img/cart.png" alt="card" class="header__cart-img">
             </a>
-            <div class="drop-cart hidden">
+            <div class="drop-cart" v-show="basket.show">
                 <div id="basket">
 
+                    <div
+                            class="drop-cart__product"
+                            v-for="item of basket.items"
+                            :key="item.productId"
+                    >
+                        <a href="product.html" class="drop-cart__product-link">
+                            <img :src="item.productImg"
+                                 alt="product" class="drop-cart__product-img">
+                        </a>
+                        <div class="drop-cart__product-info">
+                            <a href="product.html" class="drop-cart__product-name">{{ item.productName }}</a>
+                            <div class="drop-cart__product-price">
+                                <span class="drop-cart__product-count">{{ item.amount }} </span> x ${item.productPrice}
+                                <span class="drop-cart__product-sum"> = ${{ item.productPrice * item.amount }}</span>
+                            </div>
+                        </div>
+                        <a href="#" data-id="${item.productId}" name="remove" class="drop-cart__product-close far fa-times-circle"></a>
+                    </div>
                 </div>
                 <div class="drop-cart__total">
                     <span class="drop-cart__total-name">TOTAL</span>
@@ -106,7 +130,27 @@
             <h4>SHOP for items based on what we featured in this week</h4>
         </div>
         <div id="catalog">
-
+            <div
+                    class="hot-offer"
+                    v-for="item of catalog.items" :key="item.productId"
+            >
+                <div class="hot-offer__shadow">
+                    <img :src="item.productImg" alt="t-shirt">
+                    <div class="hot-offer__hover">
+                        <div class="hot-offer__square">
+                            <button
+                                    name="add"
+                                    @click="add(item)"
+                            ><img src="../src/assets/img/kart_white.png" alt="order">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <a>{{ item.productName }}</a>
+                <h3>
+                    ${{ item.productPrice }}
+                    <!--stars-->
+                </h3>
+            </div>
         </div>
         <div class="featured-items__undertitle">
             <a href="#">Browse All Product <i class="fas fa-long-arrow-alt-right"></i></a>
@@ -196,7 +240,10 @@ a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”<
         </div>
     </div>
 
-    <script src="../src/components/basket.js"></script>
-    <script src="../src/components/catalog.js"></script>
+    <!--<script src="../src/components/basket.js"></script>-->
+    <!--<script src="../src/components/catalog.js"></script>-->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </body>
 </html>
