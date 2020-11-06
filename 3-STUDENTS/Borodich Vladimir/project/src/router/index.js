@@ -41,6 +41,10 @@ const routes = [
         path: '/catalog',
         redirect: '/catalog/man',
     },
+    {
+        path: '/*',
+        component: { render: (h) => h('div', ['404! Page Not Found!']) },
+    },
 ];
 
 const router = new VueRouter({

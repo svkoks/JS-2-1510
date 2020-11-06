@@ -1,6 +1,7 @@
 <template>
     <main class="main">
-        <section class="shopping-cart center">
+        <div v-show="products.length == 0" class="cart-empty">Your cart is empty</div>
+        <section v-show="products.length > 0" class="shopping-cart center">
             <div class="shopping-cart__table">
                 <div class="shopping-cart__headings">
                     <div class="shopping-cart__headings-name shopping-cart__headings-name_big">Product Details</div>
