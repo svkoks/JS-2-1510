@@ -10,7 +10,7 @@
             <img :src="baseImgUrl + item.img" alt="item.name" class="card__img" />
         </a>
         <div class="card__content">
-            <router-link :to="`/product/${item.id}/${item.name.replaceAll(' ','_')}`" >
+            <router-link :to="`/product/${item.id}/${item.name.replaceAll(' ', '_')}`">
                 <h3 class="card__h3">{{ item.name }}</h3>
             </router-link>
             <div class="card__price">
@@ -38,7 +38,7 @@ export default {
 
     methods: {
         addToCart() {
-            this.$store.commit('addToCart',this.item);
+            this.$store.commit('addToBasket', this.item);
         },
     },
 };

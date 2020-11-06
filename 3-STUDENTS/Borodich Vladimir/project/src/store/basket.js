@@ -1,40 +1,28 @@
+import { httpGet } from '@/services/http-service';
+
 export default {
     state: {
-        basketItems: [],
-        storage: window.localStorage,
+        basket: [],
         badge: 0,
     },
-    getters: {},
+    getters: {
+        basket(state) {
+            return state.basket;
+        }
+    },
     mutations: {
-        addToCart(state, payload) {
-            let item = payload;
-            let product = Object.assign({}, { amount: 1 }, item);
-            let searchResult = state.basketItems.find((item) => item.id === product.id);
-            searchResult ? searchResult.amount++ : (state.basketItems.push(product), (state.badge = state.basketItems.length));
-            this.dispatch('setStorage', state.basketItems);
-        },
-
-        removeBasketItem(state, payload) {
-            let product = state.basketItems.find((item) => item.id === +payload);
-            product.amount > 1
-                ? product.amount--
-                : (state.basketItems.splice(state.basketItems.indexOf(product), 1), (state.badge = state.basketItems.length));
-            this.dispatch('setStorage', state.basketItems);
-        },
-        clearCart(state) {
-            state.basketItems = [];
-            state.badge = state.basketItems.length;
-            this.dispatch('setStorage', []);
-        },
+        changeBasket(state, payload) {
+            state.basket = payload;
+            state.badge = state.basket.length;
+        }    
     },
     actions: {
-        getStorage({ state }) {
-            let items = state.storage.getItem('basket');
-            items ? (state.basketItems = JSON.parse(items)) : this.setStorage([]);
-            state.badge = state.basketItems.length;
+        async getBasket({ commit }) {
+            console.log('action getBasket');
+            commit('changeBasket', await httpGet('/api/basket'))
         },
-        setStorage({ state }, data) {
-            state.storage.setItem('basket', JSON.stringify(data));
-        },
+        // async addToBasket({ commit }, item) {
+            
+        // }
     },
 };

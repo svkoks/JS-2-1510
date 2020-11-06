@@ -22,7 +22,7 @@ export default {
     data() {
         return {
             catalogItems: [],
-            baseUrl: 'https://raw.githubusercontent.com/wowankz/static/master/shop/catalog/',
+            baseUrl: 'api/',
         };
     },
 

@@ -5,6 +5,8 @@ import Catalog from '../views/Catalog.vue';
 import Product from '../views/Product.vue';
 import Cart from '../views/Cart.vue';
 import Checkout from '../views/Checkout.vue';
+import NotFoundPage from '../views/NotFoundPage.vue';
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -43,7 +45,7 @@ const routes = [
     },
     {
         path: '/*',
-        component: { render: (h) => h('div', ['404! Page Not Found!']) },
+        component: NotFoundPage,
     },
 ];
 
