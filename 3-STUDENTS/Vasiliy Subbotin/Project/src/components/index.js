@@ -1,11 +1,3 @@
-// import Basket from './basket';
-// import Catalog from './catalog';
-
-// export default () => {
-//     let basket = new Basket;
-//     let catalog = new Catalog(basket)
-// }
-
 export default () => {
     const app = new Vue({
         el: '#app',
@@ -28,7 +20,6 @@ export default () => {
             add(product) {
                 let find = this.basket.items.find(el => el.productId == product.productId);
                 console.log(find)
-                // this.basket.total += find.
                     if (!find) {
                         let newItem = Object.assign({}, product, { amount: 1 });
                         this.basket.items.push(newItem);
