@@ -1,7 +1,7 @@
 <template>
     <div class="drop-cart">
         <div v-if="basket.length < 1" class="drop-cart__empty">Empty</div>
-        <product-item v-for="item of basket" :key="item.id" :item="item" />
+        <productItem v-for="item of basket" :key="item.id" :item="item" />
         <div class="drop-cart__total">
             <span class="drop-cart__total-name">TOTAL</span>
             <span id="basket-total" class="drop-cart__total-sum">${{ amountTotal }}</span>

@@ -13,7 +13,7 @@
                 <span class="drop-cart__product-sum"> = ${{ item.price * item.amount }}</span>
             </div>
         </div>
-        <a @click.prevent="removeBasketItem(item.id)" href="#" class="drop-cart__product-close"><i class="far fa-times-circle"></i></a>
+        <a @click.prevent="removeFromBasket(item.id)" href="#" class="drop-cart__product-close"><i class="far fa-times-circle"></i></a>
     </div>
 </template>
 
@@ -32,9 +32,9 @@ export default {
         };
     },
     methods:{
-        removeBasketItem(id){
+        removeFromBasket(id){
             console.log('remove id : ',id);
-            this.$store.commit('removeBasketItem',id);
+            this.$store.dispatch('removeFromBasket',id);
         }
     }
 };

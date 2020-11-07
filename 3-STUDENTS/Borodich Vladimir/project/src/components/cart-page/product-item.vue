@@ -20,7 +20,7 @@
         <div class="shopping-cart__product-shipping">FREE</div>
         <div class="shopping-cart__product-subtotal">${{ item.price * item.amount }}</div>
         <div class="shopping-cart__product-action">
-            <a @click.prevent="removeBasketItem(item.id)" href="#" class="shopping-cart__product-close"><i class="fas fa-times-circle"></i></a>
+            <a @click.prevent="removeFromBasket(item.id)" href="#" class="shopping-cart__product-close"><i class="fas fa-times-circle"></i></a>
         </div>
     </div>
 </template>
@@ -36,9 +36,9 @@ export default {
         };
     },
     methods:{
-        removeBasketItem(id){
+        removeFromBasket(id){
             console.log('remove id : ',id);
-            this.$store.commit('removeBasketItem',id);
+            this.$store.dispatch('removeFromBasket',id);
         }
     }
 };

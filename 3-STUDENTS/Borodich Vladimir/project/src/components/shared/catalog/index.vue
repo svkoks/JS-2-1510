@@ -12,7 +12,6 @@ import Item from './item';
 import { httpGet } from '@/services/http-service';
 export default {
     props: {
-        url: String,
         cl: String,
     },
     components: {
@@ -22,15 +21,16 @@ export default {
     data() {
         return {
             catalogItems: [],
-            baseUrl: 'api/',
+            baseUrl: '/api/',
         };
     },
 
     methods: {
-        async getProducts() {
-            let items = await httpGet(this.baseUrl + this.url);
+        async getProducts(url) {
+            let items = await httpGet(url);
             this.catalogItems = items ? items : [];
         },
+
         sortItems() {
             const typeSort = this.$store.state.sortForm.sort;
             console.log('sort : ', typeSort);
@@ -49,15 +49,39 @@ export default {
                 }
             });
         },
+
+        matchPath(path) {
+            const re = /catalog\/.*\/?/;
+            const res = path.match(re);
+            if (res){
+                return res[0]
+            }else{
+                switch (path) {
+                    case '/':
+                        return 'catalog/featured';
+                    default:
+                        return 'catalog';
+                }
+                
+            }
+            
+        },
     },
     computed: {
         items() {
             return this.sortItems();
         },
+        
     },
 
     created() {
-        this.getProducts();
+        this.getProducts(this.baseUrl + this.matchPath(this.$route.path));
+    },
+
+    watch: {
+        $route(toPath) {
+            this.getProducts(this.baseUrl + this.matchPath(toPath.path));
+        },
     },
 };
 </script>

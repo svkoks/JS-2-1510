@@ -16,7 +16,7 @@ const routes = [
         component: Home,
     },
     {
-        path: '/product/:id/:name',
+        path: '/catalog/:category/product/:id/:name',
         name: 'Product',
         component: Product,
     },
@@ -31,11 +31,8 @@ const routes = [
         component: Checkout,
     },
     {
-        path: '/catalog/:id',
+        path: '/catalog/:category',
         name: 'Catalog',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: Catalog, //  () =>
         //     import(/* webpackChunkName: "about" */ "../views/Catalog.vue")
     },

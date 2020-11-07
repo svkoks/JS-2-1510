@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="shopping-cart__button-box">
-                <a @click.prevent="clearCart" href="#" class="shopping-cart__button">CLEAR SHOPPING CART</a>
+                <a @click.prevent="clearBasket" href="#" class="shopping-cart__button">CLEAR SHOPPING CART</a>
                 <a href="#" class="shopping-cart__button">CONTINUE SHOPPING</a>
             </div>
 
@@ -41,8 +41,12 @@
                     <a href="#" class="shopping-cart__form-button">Apply coupon</a>
                 </form>
                 <div class="shopping-cart__form-total">
-                    <p class="shopping-cart__form-sub">Sub total <span>${{amountTotal}}</span></p>
-                    <p class="shopping-cart__form-grand">GRAND TOTAL <span>${{amountTotal}}</span></p>
+                    <p class="shopping-cart__form-sub">
+                        Sub total <span>${{ amountTotal }}</span>
+                    </p>
+                    <p class="shopping-cart__form-grand">
+                        GRAND TOTAL <span>${{ amountTotal }}</span>
+                    </p>
                     <router-link to="/checkout" class="shopping-cart__button_red">proceed to checkout</router-link>
                 </div>
             </div>
@@ -58,18 +62,18 @@ export default {
     },
 
     methods: {
-        clearCart() {
-            this.$store.commit('clearCart');
+        clearBasket() {
+            this.$store.commit('changeBasket', { action: { name: 'update', type: '' }, data: [] });
         },
     },
 
     computed: {
         products() {
-            return this.$store.state.basket.basketItems;
+            return this.$store.state.basket.basket;
         },
         amountTotal() {
-            return this.$store.state.basket.basketItems.length > 0
-                ? this.$store.state.basket.basketItems.reduce((sum, item) => {
+            return this.$store.state.basket.basket.length > 0
+                ? this.$store.state.basket.basket.reduce((sum, item) => {
                       return (sum += item.price * item.amount);
                   }, 0)
                 : '0';

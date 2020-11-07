@@ -1,0 +1,9 @@
+[ {
+    "id": 16,
+    "name": "Kiwi People T-Shirt",
+    "price": "69.00",
+    "img": "cat-product_7.png",
+    "stars": "5",
+    "category": ["man", "hot-deals"],
+    "amount":1
+}]

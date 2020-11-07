@@ -1,11 +1,8 @@
 <template>
-  <section class="like center">
-            <h2 class="like__h2">you may like also</h2>
-<Catalog url="like.json" cl="like__content"/>
-            <!-- <div id="like" class="like__content">
-                <div style="width: 100%;font-size: 5rem;color: #eeeeee;text-align: center;"><i class="fas fa-spinner fa-spin"></i></div>
-            </div> -->
-        </section>
+    <section class="like center">
+        <h2 class="like__h2">you may like also</h2>
+        <Catalog  cl="like__content" />
+    </section>
 </template>
 
 <script>
@@ -17,6 +14,4 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

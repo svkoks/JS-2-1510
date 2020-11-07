@@ -7,7 +7,7 @@
             <main class="main">
                 <div class="catalog">
                     <SortForm />
-                    <Catalog url="cat.json" cl="catalog-products" />
+                    <Catalog  cl="catalog-products" />
                     <Pagination />
                 </div>
             </main>
