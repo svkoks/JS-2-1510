@@ -40,7 +40,7 @@ export default () => {
 		async mounted() {
 			try {
 				this.catalog.items = await this.get(this.catalog.url);
-				this.catalog.items = await this.get(this.basket.url).content;
+				this.catalog.items = (await this.get(this.basket.url)).content;
 			}
 			catch(err) {
 				console.log(err);

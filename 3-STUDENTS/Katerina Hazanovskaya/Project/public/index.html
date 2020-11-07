@@ -5,7 +5,6 @@
     <title>Main page</title>
 	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
 	 integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-	 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -22,13 +21,37 @@
 					</form>
 			</div>
 			<div class="header__right">
-					<a href="#" class="header__cart" id="toggle-basket">
+					<a 
+						href="#" 
+						class="header__cart" 
+						id="toggle-basket"
+						@click="basket.show = !basket.show "
+					>
 						<div id="cart-badge" class="header__cart-badge">0</div>
 						<img src="../src/assets/img/cart.png" alt="card" class="header__cart-img">
 					</a>
-					<div class="drop-cart hidden">
+					<div class="drop-cart" v-show="basket.show">
 						<div id="basket">
 
+							<div 
+								class="drop-cart__product"
+								v-for="item of basket.items"
+								:key="item.productId"
+							>
+								<a href="product.html" class="drop-cart__product-link">
+									<img :src="item.productImg"
+											alt="product" class="drop-cart__product-img">
+								</a>
+								<div class="drop-cart__product-info">
+									<a href="product.html" class="drop-cart__product-name">{{ item.productName }}</a>
+									<div class="drop-cart__product-price">
+											<span class="drop-cart__product-count">{{ item.amount }} </span> 
+											x {{ item.productPrice }}
+											<span class="drop-cart__product-sum"> = ${{ item.productPrice * item.amount }}</span>
+									</div>
+								</div>
+								<a href="#" data-id="${item.productId}" name="remove" class="drop-cart__product-close far fa-times-circle"></a>
+							</div>
 						</div>
 						<div class="drop-cart__total">
 							<span class="drop-cart__total-name">TOTAL</span>
@@ -122,7 +145,7 @@
 					:key="item.productId"
 				>
 					<div class="hot-offer__shadow">
-						 <img :src="{{ item.productImg }}" alt="t-shirt">
+						 <img :src="tem.productImg" alt="t-shirt">
 						 <div class="hot-offer__hover">
 							  <div class="hot-offer__square">
 									<button 
@@ -251,5 +274,6 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </body>
 </html>
