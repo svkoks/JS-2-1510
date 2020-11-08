@@ -21,32 +21,7 @@
 				</div>
 
 				<div class="header__right">
-					<div class="header__cart">
-						<a href="#" class="header__cartLink"
-							@click="cartShown = !cartShown"></a>
-						<div class="cartPopup" v-show="cartShown">
-							<ul class="cartPopup__items" id="cartPopupItems">
-								<li class="cartPopup__item" v-for="(item, index) in cartItems"
-										:key="item.id">
-									<img :src="item.img" :alt="item.name"
-										class="cartPopup__itemImg">
-									<div class="cartPopup__itemDetails">
-										<p class="cartPopup__itemName">{{item.name}}</p>
-										<p class="cartPopup__itemPrice">{{item.qty}}&nbsp;&times;&nbsp;${{formatPrice(item.price)}}</p>
-									</div>
-									<button href="#" class="cartPopup__itemRemove fas
-										fa-times-circle"
-										@click="removeFromCart(item, index)"></button>
-								</li>
-							</ul>
-							<div class="cartPopup__total">
-								<p class="cartPopup__totalLabel">Total</p>
-								<p class="cartPopup__totalValue">${{formatPrice(cartTotal)}}</p>
-							</div>
-							<a href="checkout.html" class="cartPopup__checkout">Checkout</a>
-							<a href="cart.html" class="cartPopup__goToCart">Go to cart</a>
-						</div>
-					</div>
+					<Cart ref="cart" />
 					<a href="#" class="header__myAccount">My account<i
 						class="header__myAccountCaret fas fa-caret-down"></i></a>
 				</div>
@@ -83,7 +58,7 @@
 			<div class="promos__item">
 				<img class="promos__img" src="@/assets/img/promo-1.jpg" alt="">
 				<div class="promos__label">
-					<h3 class="promos__labelTitle">Luxurious & trendy</h3>
+					<h3 class="promos__labelTitle">Luxurious &amp; trendy</h3>
 					<p class="promos__labelSubtitle">Accessories</p>
 				</div>
 			</div>
@@ -114,7 +89,7 @@
 					<img :src="item.img" :alt="item.name" class="snippet__img">
 					<div class="snippet__hover">
 						<button class="snippet__addToCart"
-							@click="addToCart(item)">Add to cart</button>
+							@click="addItemToCart(item)">Add to cart</button>
 					</div>
 					<div class="snippet__caption">
 						<h3 class="snippet__name">{{item.name}}</h3>
@@ -166,71 +141,41 @@
 </template>
 
 <script>
-import CartItem from "@/components/CartItem.js";
-import CatalogItem from "@/components/CatalogItem.js";
+	import CatalogItem from "@/components/CatalogItem.js";
 
-import Footer from "@/components/Footer.vue";
+	import Cart from "@/components/Cart.vue";
+	import Footer from "@/components/Footer.vue";
 
-export default {
-	components: {Footer},
+	export default {
+		components: {Cart, Footer},
 
-	data() {
-		return {
-			catalogItems: [],
-			cartShown: false,
-			cartItems: []
-		};
-	},
-
-	computed: {
-		cartTotal() {
-			return this.cartItems.reduce((a, b) => a + b.price * b.qty, 0);
-		}
-	},
-
-	methods: {
-		formatPrice(price) {
-			return Math.floor(price / 100) + "." + `00${price}`.slice(-2);
+		data() {
+			return {
+				catalogItems: []
+			};
 		},
 
-		addToCart(item) {
-			const index = this.cartItems.findIndex(x => x.id == item.id);
-			if(index == -1) {
-				this.cartItems.push(new CartItem(item));
-			} else {
-				++this.cartItems[index].qty;
+		methods: {
+			formatPrice(price) {
+				return Math.floor(price / 100) + "." + `00${price}`.slice(-2);
+			},
+
+			addItemToCart(item) {
+				this.$refs.cart.add(item);
 			}
 		},
 
-		removeFromCart(item, index) {
-			if(--item.qty == 0) {
-				this.cartItems.splice(index, 1);
-			}
+		created() {
+			fetch(
+				"https://raw.githubusercontent.com/VoidPhantom/gbimg/master/catalog.json"
+			).then(response => {
+				return response.json();
+			}).then(json => {
+				json.forEach(jsonItem => {
+					this.catalogItems.push(new CatalogItem(jsonItem.id, jsonItem.name,
+						jsonItem.price, jsonItem.img));
+				});
+			});
 		}
-	},
-
-	created() {
-		fetch(
-			"https://raw.githubusercontent.com/VoidPhantom/gbimg/master/catalog.json"
-		).then(response => {
-			return response.json();
-		}).then(json => {
-			json.forEach(jsonItem => {
-				this.catalogItems.push(new CatalogItem(jsonItem.id, jsonItem.name,
-					jsonItem.price, jsonItem.img));
-			});
-		});
-
-		fetch(
-			"https://raw.githubusercontent.com/VoidPhantom/gbimg/master/cart.json"
-		).then(response => {
-			return response.json();
-		}).then(json => {
-			json.forEach(jsonItem => {
-				this.cartItems.push(new CartItem(jsonItem.id, jsonItem.name,
-					jsonItem.price, jsonItem.img, jsonItem.qty));
-			});
-		});
-	}
-};
+	};
 </script>
