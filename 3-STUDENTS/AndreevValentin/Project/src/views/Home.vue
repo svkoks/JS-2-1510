@@ -21,29 +21,31 @@
 				</div>
 
 				<div class="header__right">
-					<a href="#" class="header__cart"
-						@click="cartShown = !cartShown"></a>
-					<div class="cartPopup" v-show="cartShown">
-						<ul class="cartPopup__items" id="cartPopupItems">
-							<li class="cartPopup__item" v-for="(item, index) in cartItems"
-									:key="item.id">
-								<img :src="item.img" :alt="item.name"
-									class="cartPopup__itemImg">
-								<div class="cartPopup__itemDetails">
-									<p class="cartPopup__itemName">{{item.name}}</p>
-									<p class="cartPopup__itemPrice">{{item.qty}}&nbsp;&times;&nbsp;${{formatPrice(item.price)}}</p>
-								</div>
-								<button href="#" class="cartPopup__itemRemove fas
-									fa-times-circle"
-									@click="removeFromCart(item, index)"></button>
-							</li>
-						</ul>
-						<div class="cartPopup__total">
-							<p class="cartPopup__totalLabel">Total</p>
-							<p class="cartPopup__totalValue">${{formatPrice(cartTotal)}}</p>
+					<div class="header__cart">
+						<a href="#" class="header__cartLink"
+							@click="cartShown = !cartShown"></a>
+						<div class="cartPopup" v-show="cartShown">
+							<ul class="cartPopup__items" id="cartPopupItems">
+								<li class="cartPopup__item" v-for="(item, index) in cartItems"
+										:key="item.id">
+									<img :src="item.img" :alt="item.name"
+										class="cartPopup__itemImg">
+									<div class="cartPopup__itemDetails">
+										<p class="cartPopup__itemName">{{item.name}}</p>
+										<p class="cartPopup__itemPrice">{{item.qty}}&nbsp;&times;&nbsp;${{formatPrice(item.price)}}</p>
+									</div>
+									<button href="#" class="cartPopup__itemRemove fas
+										fa-times-circle"
+										@click="removeFromCart(item, index)"></button>
+								</li>
+							</ul>
+							<div class="cartPopup__total">
+								<p class="cartPopup__totalLabel">Total</p>
+								<p class="cartPopup__totalValue">${{formatPrice(cartTotal)}}</p>
+							</div>
+							<a href="checkout.html" class="cartPopup__checkout">Checkout</a>
+							<a href="cart.html" class="cartPopup__goToCart">Go to cart</a>
 						</div>
-						<a href="checkout.html" class="cartPopup__checkout">Checkout</a>
-						<a href="cart.html" class="cartPopup__goToCart">Go to cart</a>
 					</div>
 					<a href="#" class="header__myAccount">My account<i
 						class="header__myAccountCaret fas fa-caret-down"></i></a>
