@@ -41,6 +41,7 @@ export default {
     components: { Item },
     data() {
         return {
+            // url: 'https://raw.githubusercontent.com/Eliasz-S/static/main/JSON/cart.json',
             url: '/api/cart', 
             cartShow: false
         }
