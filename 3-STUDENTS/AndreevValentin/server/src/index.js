@@ -12,6 +12,15 @@ server.get("/catalog.json", async (req, res) => {
 	});
 });
 
+server.get("/cart.json", async (req, res) => {
+	fs.readFile("./src/db/cart.json", (err, data) => {
+		if(err) {
+			throw err;
+		}
+		res.header("Content-Type", "application/json").send(data);
+	});
+});
+
 server.listen(3300, () => {
 	console.log("Listening");
 });
