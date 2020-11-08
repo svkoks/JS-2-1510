@@ -57,16 +57,14 @@
 			}
 		},
 
-		created() {
-			fetch(
+		async created() {
+			const response = await fetch(
 				"https://raw.githubusercontent.com/VoidPhantom/gbimg/master/cart.json"
-			).then(response => {
-				return response.json();
-			}).then(json => {
-				json.forEach(jsonItem => {
-					this.items.push(new CartItem(jsonItem.id, jsonItem.name,
-						jsonItem.price, jsonItem.img, jsonItem.qty));
-				});
+			);
+			const json = await response.json();
+			json.forEach(jsonItem => {
+				this.items.push(new CartItem(jsonItem.id, jsonItem.name,
+					jsonItem.price, jsonItem.img, jsonItem.qty));
 			});
 		}
 	};

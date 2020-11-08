@@ -21,16 +21,14 @@
 			};
 		},
 
-		created() {
-			fetch(
+		async created() {
+			const response = await fetch(
 				"https://raw.githubusercontent.com/VoidPhantom/gbimg/master/catalog.json"
-			).then(response => {
-				return response.json();
-			}).then(json => {
-				json.forEach(jsonItem => {
-					this.items.push(new CatalogItem(jsonItem.id, jsonItem.name,
-						jsonItem.price, jsonItem.img));
-				});
+			);
+			const json = await response.json();
+			json.forEach(jsonItem => {
+				this.items.push(new CatalogItem(jsonItem.id, jsonItem.name,
+					jsonItem.price, jsonItem.img));
 			});
 		}
 	};
