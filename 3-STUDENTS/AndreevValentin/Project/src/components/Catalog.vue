@@ -22,9 +22,7 @@
 		},
 
 		async created() {
-			const response = await fetch(
-				"https://raw.githubusercontent.com/VoidPhantom/gbimg/master/catalog.json"
-			);
+			const response = await fetch("/api/catalog.json");
 			const json = await response.json();
 			json.forEach(jsonItem => {
 				this.items.push(new CatalogItem(jsonItem.id, jsonItem.name,
