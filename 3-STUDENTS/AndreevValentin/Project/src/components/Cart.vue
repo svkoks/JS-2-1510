@@ -3,16 +3,9 @@
 		<a href="#" class="header__cartLink" @click="shown = !shown"></a>
 		<div class="cartPopup" v-show="shown">
 			<ul class="cartPopup__items" id="cartPopupItems">
-				<li class="cartPopup__item" v-for="(item, index) in items"
-						:key="item.id">
-					<img :src="item.img" :alt="item.name" class="cartPopup__itemImg">
-					<div class="cartPopup__itemDetails">
-						<p class="cartPopup__itemName">{{item.name}}</p>
-						<p class="cartPopup__itemPrice">{{item.qty}}&nbsp;&times;&nbsp;${{formatPrice(item.price)}}</p>
-					</div>
-					<button href="#" class="cartPopup__itemRemove fas fa-times-circle"
-						@click="remove(item, index)"></button>
-				</li>
+				<RenderedCartItem v-for="(item, index) in items" :key="item.id"
+					:item="item" :index="index"
+					@item-removed="remove($event.item, $event.index)" />
 			</ul>
 			<div class="cartPopup__total">
 				<p class="cartPopup__totalLabel">Total</p>
@@ -25,9 +18,12 @@
 </template>
 
 <script>
-	import CartItem from "@/components/CartItem.js";
+	import CartItem from "./CartItem.js";
+	import RenderedCartItem from "./RenderedCartItem.vue";
 
 	export default {
+		components: {RenderedCartItem},
+
 		data() {
 			return {
 				shown: false,
