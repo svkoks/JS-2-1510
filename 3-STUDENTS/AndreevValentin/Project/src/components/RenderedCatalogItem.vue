@@ -13,13 +13,10 @@
 </template>
 
 <script>
+	import {formatPrice} from "@/core/formatPrice.js";
+
 	export default {
 		props: ["item"],
-
-		methods: {
-			formatPrice(price) {
-				return Math.floor(price / 100) + "." + `00${price}`.slice(-2);
-			}
-		}
+		methods: {formatPrice}
 	};
 </script>

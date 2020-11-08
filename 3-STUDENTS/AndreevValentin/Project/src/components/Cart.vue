@@ -18,6 +18,7 @@
 </template>
 
 <script>
+	import {formatPrice} from "@/core/formatPrice.js";
 	import CartItem from "./CartItem.js";
 	import RenderedCartItem from "./RenderedCartItem.vue";
 
@@ -38,9 +39,7 @@
 		},
 
 		methods: {
-			formatPrice(price) {
-				return Math.floor(price / 100) + "." + `00${price}`.slice(-2);
-			},
+			formatPrice,
 
 			add(item) {
 				const index = this.items.findIndex(x => x.id == item.id);
