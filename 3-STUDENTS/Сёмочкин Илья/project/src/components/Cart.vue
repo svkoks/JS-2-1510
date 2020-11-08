@@ -4,27 +4,19 @@
             src="@/assets/img/cart.png" 
             alt="cart" 
             id="toggle-cart"
-            @click="show = !show"
+            @click="cartShow = !cartShow"
             >
         <div class="qty" id="qty">
             {{ totalQty() }}
         </div>
-        <div class="cart-dropdown" v-show="show">
-            <div 
-                id="checked-items" 
-                v-for="item of items" 
+        <div class="cart-dropdown" v-show="cartShow">
+            <Item 
+                v-for="item of items"
+                type="cart"
                 :key="item.productId"
-            >
-                <div class="cart-dropdown__checked-items">
-                    <img :src="item.productImg" alt="pic">
-                    <div>
-                        <h3>{{ item.productName }}</h3>
-                        <div><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                        <p>{{ item.amount }} x ${{ item.productPrice }}</p>
-                    </div>
-                    <button @click="remove(item.productId)" name="remove" class="fas fa-times-circle"></button>
-                </div>
-            </div>
+                :item="item"
+                @delete="remove"
+            />
             <div id="sum">
                 <div id="total" class="cart-dropdown__sum">
                     <div>total</div>
@@ -41,15 +33,24 @@
 
 <script>
 
-import { get } from '@/core/requests'
-// import Item from './CatalogItem'
+import { get } from '@/core/requests';
+import Item from './Item.vue';
+import { mapGetters } from 'vuex';
 
 export default {
+    components: { Item },
     data() {
         return {
-            items: [],
-            url: 'https://raw.githubusercontent.com/Eliasz-S/static/main/JSON/cart.json',
-            show: false
+            url: '/api/cart', 
+            cartShow: false
+        }
+    },
+    async mounted() {
+        try {
+            this.$store.dispatch('loadCart', this.url)
+        }
+        catch(err) {
+            console.log(err);
         }
     },
     methods: {
@@ -57,18 +58,22 @@ export default {
             let find = this.items.find(cartItem => cartItem.productId == item.productId);
     
             if (!find) { 
-                this.items.push(Object.assign({}, item, { amount: 1 }));
+                let newItem = Object.assign({}, item, { amount: 1 });
+                this.$store.dispatch('changeCartItems', { item: newItem, action: 1 })
             } else { 
-                find.amount++;
+                // find.amount++;
+                this.$store.dispatch('changeCartItems', { item: find, action: 3, amount: 1 })
             }
         },
         remove(id) {
             let find = this.items.find(cartItem => cartItem.productId == id);
     
             if (find.amount > 1) {
-                find.amount--;
+                // 
+                this.$store.dispatch('changeCartItems', { item: find, action: 3, amount: -1 })
             } else {
-                this.items.splice(this.items.indexOf(find), 1)
+                // this.items.splice(this.items.indexOf(find), 1)
+                this.$store.dispatch('changeCartItems', { item: find, action: 2 })
             }
         },
         totalPrice() {
@@ -86,14 +91,8 @@ export default {
             return qty;
         }
     },
-
-    async mounted() {
-        try {
-            this.items = (await get(this.url)).content;
-        }
-        catch(err) {
-            console.log(err);
-        }
+    computed: {
+        ...mapGetters({ items: 'cart_getter' }) //cart getter - это такой же массив как и раньше, только теперь полученный из vuex
     }
 }
 </script>
