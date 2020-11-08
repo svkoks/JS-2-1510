@@ -1,0 +1,50 @@
+[
+	{
+		"id": 0,
+		"name": "Mango people T-shirt",
+		"price": 5200,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/0.jpg"
+	},
+	{
+		"id": 1,
+		"name": "Banana people T-shirt",
+		"price": 5300,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/1.jpg"
+	},
+	{
+		"id": 2,
+		"name": "Strawberry people T-shirt",
+		"price": 5500,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/2.jpg"
+	},
+	{
+		"id": 3,
+		"name": "Orange people T-shirt",
+		"price": 6700,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/3.jpg"
+	},
+	{
+		"id": 4,
+		"name": "Pumpkin people T-shirt",
+		"price": 6900,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/4.jpg"
+	},
+	{
+		"id": 5,
+		"name": "Pineapple people T-shirt",
+		"price": 9400,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/5.jpg"
+	},
+	{
+		"id": 6,
+		"name": "Cucumber people T-shirt",
+		"price": 2300,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/6.jpg"
+	},
+	{
+		"id": 7,
+		"name": "Tomato people T-shirt",
+		"price": 4500,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/7.jpg"
+	}
+]
