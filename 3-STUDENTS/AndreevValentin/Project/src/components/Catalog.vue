@@ -1,16 +1,7 @@
 <template>
 	<div class="featured__items">
-		<article class="snippet" v-for="item in items" :key="item.id">
-			<img :src="item.img" :alt="item.name" class="snippet__img">
-			<div class="snippet__hover">
-				<button class="snippet__addToCart"
-					@click="$emit('item-added', {item})">Add to cart</button>
-			</div>
-			<div class="snippet__caption">
-				<h3 class="snippet__name">{{item.name}}</h3>
-				<p class="snippet__price">${{formatPrice(item.price)}}</p>
-			</div>
-		</article>
+		<RenderedCatalogItem v-for="item in items" :key="item.id" :item="item"
+			@item-added="$emit('item-added', {item})" />
 		<div class="snippet__filler"></div>
 		<div class="snippet__filler"></div>
 		<div class="snippet__filler"></div>
@@ -19,18 +10,15 @@
 
 <script>
 	import CatalogItem from "./CatalogItem.js";
+	import RenderedCatalogItem from "./RenderedCatalogItem.vue";
 
 	export default {
+		components: {RenderedCatalogItem},
+
 		data() {
 			return {
 				items: []
 			};
-		},
-
-		methods: {
-			formatPrice(price) {
-				return Math.floor(price / 100) + "." + `00${price}`.slice(-2);
-			}
 		},
 
 		created() {
