@@ -3,7 +3,7 @@ const fs = require("fs");
 
 const server = express();
 
-server.get("/catalog.json", async (req, res) => {
+server.get("/catalog", async (req, res) => {
 	fs.readFile("./src/db/catalog.json", (err, data) => {
 		if(err) {
 			throw err;
@@ -12,7 +12,7 @@ server.get("/catalog.json", async (req, res) => {
 	});
 });
 
-server.get("/cart.json", async (req, res) => {
+server.get("/cart", async (req, res) => {
 	fs.readFile("./src/db/cart.json", (err, data) => {
 		if(err) {
 			throw err;

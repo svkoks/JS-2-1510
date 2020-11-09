@@ -58,7 +58,7 @@
 		},
 
 		async created() {
-			const response = await fetch("/api/cart.json");
+			const response = await fetch("/api/cart");
 			const json = await response.json();
 			json.forEach(jsonItem => {
 				this.items.push(new CartItem(jsonItem.id, jsonItem.name,

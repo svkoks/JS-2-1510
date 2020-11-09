@@ -22,7 +22,7 @@
 		},
 
 		async created() {
-			const response = await fetch("/api/catalog.json");
+			const response = await fetch("/api/catalog");
 			const json = await response.json();
 			json.forEach(jsonItem => {
 				this.items.push(new CatalogItem(jsonItem.id, jsonItem.name,
