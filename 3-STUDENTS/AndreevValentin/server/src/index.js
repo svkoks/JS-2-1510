@@ -1,25 +1,21 @@
 const express = require("express");
 const fs = require("fs");
+const util = require("util");
 
 const server = express();
 server.use(express.json());
 
+const fsReadFile = util.promisify(fs.readFile);
+const fsWriteFile = util.promisify(fs.writeFile);
+
 server.get("/catalog", async (req, res) => {
-	fs.readFile("./src/db/catalog.json", (err, data) => {
-		if(err) {
-			throw err;
-		}
-		res.header("Content-Type", "application/json").send(data);
-	});
+	const data = await fsReadFile("./src/db/catalog.json");
+	res.header("Content-Type", "application/json").send(data);
 });
 
 server.get("/cart", async (req, res) => {
-	fs.readFile("./src/db/cart.json", (err, data) => {
-		if(err) {
-			throw err;
-		}
-		res.header("Content-Type", "application/json").send(data);
-	});
+	const data = await fsReadFile("./src/db/cart.json");
+	res.header("Content-Type", "application/json").send(data);
 });
 
 server.put("/cart/:id", (req, res) => {
