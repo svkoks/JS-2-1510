@@ -187,7 +187,7 @@ export default {
         },
         amountValue() {
             this.$store.commit('amountChange', this.amount);
-            return this.$store.state.sortForm.amount;
+            return  this.amount;
         },
     },
 };

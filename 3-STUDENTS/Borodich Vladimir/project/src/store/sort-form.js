@@ -1,7 +1,7 @@
 export default {
     state: {
         sort: 'name',
-        amount: '09',
+        amount: '9',
     },
     mutations: {
         sortChange(state, payload) {

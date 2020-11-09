@@ -9,10 +9,12 @@
 
 <script>
 import Item from './item';
-import { httpGet } from '@/services/http-service';
+import { Get } from '@/services/http-service';
 export default {
     props: {
         cl: String,
+        category: String,
+        amount: Number,
     },
     components: {
         Item,
@@ -27,7 +29,7 @@ export default {
 
     methods: {
         async getProducts(url) {
-            let items = await httpGet(url);
+            let items = await Get(url);
             this.catalogItems = items ? items : [];
         },
 
@@ -49,39 +51,17 @@ export default {
                 }
             });
         },
-
-        matchPath(path) {
-            const re = /catalog\/.*\/?/;
-            const res = path.match(re);
-            if (res){
-                return res[0]
-            }else{
-                switch (path) {
-                    case '/':
-                        return 'catalog/featured';
-                    default:
-                        return 'catalog';
-                }
-                
-            }
-            
-        },
     },
     computed: {
         items() {
-            return this.sortItems();
+            let from = 0;
+            let to = Math.abs(this.amount) || Math.abs(this.$store.state.sortForm.amount);
+            return this.sortItems().slice(from, to);
         },
-        
     },
 
     created() {
-        this.getProducts(this.baseUrl + this.matchPath(this.$route.path));
-    },
-
-    watch: {
-        $route(toPath) {
-            this.getProducts(this.baseUrl + this.matchPath(toPath.path));
-        },
+        this.getProducts(this.baseUrl + this.category);
     },
 };
 </script>

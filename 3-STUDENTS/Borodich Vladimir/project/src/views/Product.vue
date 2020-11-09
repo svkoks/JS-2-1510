@@ -63,10 +63,10 @@
                         </div>
                         <div class="product__choose-datalist">
                             <label class="product__choose-name" for="quantity">QUANTITY</label><br />
-                            <input type="number" name="quantity" id="quantity" placeholder="2" />
+                            <input min="1"  type="number" name="quantity" id="quantity" placeholder="2" v-model="amount" />
                         </div>
                     </form>
-                    <a href="#" class="product__button">
+                    <a href="#" v-bind:class="{ disabled: amount < 1 }"  @click.prevent="addToBasket" class="product__button">
                         <img src="@/assets/images/cart-red.png" alt="cart" class="product__button-img" />
                         Add to Cart
                     </a>
@@ -84,6 +84,18 @@ import CatalogLike from '@/components/product-page/catalog-like';
 export default {
     components:{
         CatalogLike
+    },
+    data(){
+        return{
+            amount:1
+        }
+    },
+    methods:{
+        addToBasket(){
+            const id = this.$route.params.id;
+           if (this.amount >= 1)
+                this.$store.dispatch('addToBasket',{id,amount:+this.amount})
+        }
     }
 };
 </script>

@@ -6,7 +6,7 @@
 
 <script>
 import AsideMenuBlock from './aside-menu-block';
-import { httpGet } from '@/services/http-service';
+import { Get } from '@/services/http-service';
 export default {
     components: {
         AsideMenuBlock,
@@ -20,7 +20,7 @@ export default {
 
     methods: {
         async getMenu() {
-            let items = await httpGet(this.url);
+            let items = await Get(this.url);
             this.blocks = items ? items : [];
         },
     },

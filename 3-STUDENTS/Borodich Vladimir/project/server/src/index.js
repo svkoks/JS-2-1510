@@ -1,7 +1,12 @@
 const express = require('express');
-const DB = require('./db');
-let db = null;
 const server = express();
+
+const DB = require('./db');
+const BasketService = require('./db/service/basket.js');
+const Logger = new (require('./logger'))(' SERVER ');
+let db = null;
+let basketService = null;
+
 server.use(express.json());
 
 server.get('/', (req, res) => {
@@ -9,30 +14,42 @@ server.get('/', (req, res) => {
 });
 
 server.get('/catalog', (req, res) => {
+    Logger.info('Get / catalog ');
     res.json(db.catalog);
 });
 
 server.get('/catalog/:category', (req, res) => {
     const params = req.params;
-    console.log('Send category : ', params.category);
-    res.json(db.getCategoryCatalog(params.category));
+    Logger.info('Get / catalog/', params.category);
+    res.json(db.getCategory(params.category));
 });
 
 server.get('/basket', (req, res) => {
+    Logger.info('Get / basket ');
     res.json(db.basket);
 });
 
-server.put('/basket/:action', (req, res) => {
-    const params = req.params;
-    // res.setHeader('Access-Control-Allow-Origin', '*');
-    // res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    console.log('Basket action : ', params);
-    console.log('Basket data : ', req.body);
-    res.json(db[params.action]('basket', req.body));
-    
+server.post('/basket', async (req, res) => {
+    Logger.info('POST / basket   ');
+    await basketService.add(req.body.id, req.body.amount);
+    res.json(db.basket);
+});
+
+server.put('/basket/:action', async (req, res) => {
+    Logger.info('PUT / basket/%s/%s', req.params.action, req.body.id);
+    await basketService.update(req.body.id, req.params.action, req.body.amount);
+    res.json(db.basket);
+});
+
+server.delete('/basket/:id', async (req, res) => {
+    Logger.info('DELETE / basket/%s', req.params.id);
+    if (req.params.id !== 'all') await basketService.delete(req.params.id);
+    else await basketService.clear();
+    res.json(db.basket);
 });
 
 server.listen(3300, () => {
     db = new DB();
-    console.log('PORT 3300');
+    basketService = new BasketService(db);
+    Logger.info('DB server run on port : 3300');
 });

@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { httpGet } from '@/services/http-service';
+import { Get } from '@/services/http-service';
 export default {
     
 data() {
@@ -55,7 +55,7 @@ data() {
 
     methods: {
        async getItems(){
-          let item = await httpGet(this.url);
+          let item = await Get(this.url);
          this.listMenu = item ? item : [];
         }
     },

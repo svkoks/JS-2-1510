@@ -69,7 +69,7 @@
       "price": "100",
       "img": "cat-product_1.png",
       "stars": "5",
-      "category": ""
+      "category": ["man","kids", "hot-deals"]
     },
     {
       "id": 10,

@@ -1,4 +1,4 @@
-import { httpGet } from '@/services/http-service';
+import { Get, Post, Put, Delete } from '@/services/http-service';
 
 export default {
     state: {
@@ -11,39 +11,41 @@ export default {
         },
     },
     mutations: {
-        changeBasket(state, payload) {
-            switch (payload.action.name) {
-                case 'update':
-                    if (payload.action.type === '++') payload.data.amount++;
-                    else if (payload.action.type === '+') state.basket.push(payload.data);
-                    else state.basket = payload.data;
-                    break;
-
-                case 'remove':
-                    if (payload.action.type === '-') payload.data.amount--;
-                    else state.basket.splice(state.basket.indexOf(payload.data), 1);
-                    break;
-            }
+        changeBasket(state, basket) {
+            state.basket = basket;
             state.badge = state.basket.length;
         },
     },
     actions: {
         async getBasket({ commit }) {
-            let data = await httpGet('/api/basket');
-            commit('changeBasket',    { action: { name: 'update', type: '' }, data: data });
+            let data = await Get('/api/basket');
+            if (data) commit('changeBasket', data);
         },
 
-        addToBasket({ commit, state }, item) {
-            let product = Object.assign({}, { amount: 1 }, item);
-            let searchResult = state.basket.find((item) => item.id === product.id);
-            if (searchResult) commit('changeBasket', { action: { name: 'update', type: '++' }, data: searchResult });
-            else commit('changeBasket', { action: { name: 'update', type: '+' }, data: product });
+        async addToBasket({ commit, state }, payload) {
+            let find = state.basket.find((item) => item.id == payload.id);console.log(find,payload);
+            if (find) {
+                const data = await Put('/api/basket/increase', { ...payload });
+                if (data) commit('changeBasket', data);
+            } else {
+                const data = await Post('/api/basket', { ...payload });
+                if (data) commit('changeBasket', data);
+            }
         },
 
-        removeFromBasket({ commit, state }, id) {
-            let product = state.basket.find((item) => item.id === +id);
-            if (product.amount > 1) commit('changeBasket', { action: { name: 'remove', type: '-' }, data: product });
-            else commit('changeBasket', { action: { name: 'remove', type: '' }, data: product });
+        async removeFromBasket({ commit, state }, payload) {
+            let find = state.basket.find((item) => item.id === payload.id);
+            if (find.amount > 1) {
+                const data = await Put('/api/basket/decrease', { ...payload });
+                if (data) commit('changeBasket', data);
+            } else {
+                const data = await Delete('/api/basket/' + payload.id);
+                if (data) commit('changeBasket', data);
+            }
+        },
+        async clearBasket({ commit}) {
+                const data = await Delete('/api/basket/all' );
+                if (data) commit('changeBasket', data);
         },
     },
 };

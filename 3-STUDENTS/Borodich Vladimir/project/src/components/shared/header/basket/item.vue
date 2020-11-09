@@ -34,7 +34,7 @@ export default {
     methods:{
         removeFromBasket(id){
             console.log('remove id : ',id);
-            this.$store.dispatch('removeFromBasket',id);
+            this.$store.dispatch('removeFromBasket',{id});
         }
     }
 };

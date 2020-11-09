@@ -63,7 +63,7 @@ export default {
 
     methods: {
         clearBasket() {
-            this.$store.commit('changeBasket', { action: { name: 'update', type: '' }, data: [] });
+            this.$store.dispatch('clearBasket');
         },
     },
 

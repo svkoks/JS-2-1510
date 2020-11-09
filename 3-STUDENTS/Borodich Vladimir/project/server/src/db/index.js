@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+const Logger = new (require('../logger'))(' SERVER:DB ');
 class DB {
     constructor() {
         this._basket = null;
@@ -20,46 +20,32 @@ class DB {
     }
 
     connect() {
-        console.log('Connect to storage');
         this.readStorage('basket');
         this.readStorage('catalog');
+        Logger.info('Server DB run successful');
     }
 
     readStorage(name) {
         try {
             this['_' + name] = JSON.parse(fs.readFileSync(path.join(__dirname, 'storage', `${name}.json`), { encoding: 'utf-8' }));
-            console.log(`Storage : ${name} is loaded`);
+            Logger.info(`Storage : ${name} is loaded`);
         } catch (error) {
-            console.log(`Connect storage ${name} is error : `, error);
+            Logger.error(`Connect storage ${name} is error : `, error);
         }
     }
 
-    writeStorage(name, data) {
+    async writeStorage(name, data) {
         try {
-            fs.writeFileSync(path.join(__dirname, 'storage', `${name}.json`), JSON.stringify(data));
-            console.log(`Write to storage ${name} successful`);
+                await fs.writeFile(path.join(__dirname, 'storage', `${name}.json`), JSON.stringify(data), (err) => {});
+          Logger.info(`Write to storage ${name} successful`);
             this[name] = data;
-            return true;
         } catch (error) {
-            console.log(`Write to storage ${name} error`, error);
-            return false;
+            Logger.error(`Write to storage ${name} error`, error);
         }
     }
 
-    update(storageName, data) {
-        console.log('Storage before update : ', this[storageName]);
-        const resultWrite = this.writeStorage(storageName, data);
-        if (resultWrite) {
-            console.log('Storage after updated : ', this.basket);
-            return { error: undefined, data: null };
-        } else {
-            console.log('Storage was not update : ', this.basket);
-            return { error: {}, data: this[storageName] };
-        }
-    }
-
-    getCategoryCatalog(category) {
-        return this.catalog.filter(item => item.category.includes(category));
+    getCategory(category) {
+        return this.catalog.filter((item) => item.category.includes(category));
     }
 }
 module.exports = DB;

@@ -7,12 +7,12 @@
             <main class="main">
                 <div class="catalog">
                     <SortForm />
-                    <Catalog  cl="catalog-products" />
+                    <Catalog :category="category" :key="category" cl="catalog-products" />
                     <Pagination />
                 </div>
             </main>
         </div>
-        <CatalogFeature/>
+        <CatalogFeature />
     </div>
 </template>
 
@@ -24,6 +24,11 @@ import AsideMenu from '@/components/catalog-page/aside-menu';
 import Pagination from '@/components/catalog-page/pagination';
 import CatalogFeature from '@/components/catalog-page/catalog-feature';
 export default {
+    data(){
+        return{
+            category:''
+        }
+    },
     components: {
         Breadcrumb,
         SortForm,
@@ -32,6 +37,27 @@ export default {
         Pagination,
         CatalogFeature
     },
+    methods:{
+         matchPath(path) {
+            const re = /catalog\/.*\/?/;
+            const res = path.match(re);
+            if (res) {
+                return res[0];
+            } else {
+                 return 'catalog';
+                }
+            }
+    },
+    created() {
+        this.category = this.matchPath(this.$route.path);
+    },
+     watch: {
+        $route(toPath) {
+            console.log(this.matchPath(toPath.path))
+            this.category = this.matchPath(toPath.path);
+        },
+    },
+
 };
 </script>
 
