@@ -43,16 +43,34 @@
 
 			add(item) {
 				const index = this.items.findIndex(x => x.id == item.id);
+				let newItem;
 				if(index == -1) {
-					this.items.push(new CartItem(item));
+					newItem = new CartItem(item);
+					this.items.push(newItem);
 				} else {
-					++this.items[index].qty;
+					newItem = this.items[index];
+					++newItem.qty;
 				}
+				fetch(`/api/cart/${item.id}`, {
+					method: "put",
+					headers: {"Content-Type": "application/json"},
+					body: JSON.stringify(newItem)
+				});
 			},
 
 			remove(item, index) {
 				if(--item.qty == 0) {
 					this.items.splice(index, 1);
+					fetch(`/api/cart/${item.id}`, {
+						method: "delete"
+					});
+				} else {
+					console.log(JSON.stringify(item));
+					fetch(`/api/cart/${item.id}`, {
+						method: "put",
+						headers: {"Content-Type": "application/json"},
+						body: JSON.stringify(item)
+					});
 				}
 			}
 		},
