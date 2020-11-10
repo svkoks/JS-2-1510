@@ -1,6 +1,6 @@
 <template>
     <section class="breadcrumb center">
-        <h1 class="breadcrumb__h1">{{ currentRoute.params['id'] }}</h1>
+        <h1 class="breadcrumb__h1">{{ currentRoute.params['category'] }}</h1>
         <div class="breadcrumb__nav">
             <router-link to="/" class="breadcrumb__nav-link">Home </router-link>
             <router-link v-for="(item, index) in pathArr" :key="index" :to="createPath(item)" class="breadcrumb__nav-link">{{
