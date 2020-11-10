@@ -1,6 +1,6 @@
 <template>
   <div class="category center">
-            <router-link  to="/catalog/men" class="category__item category__item_big">
+            <router-link  to="/catalog/man" class="category__item category__item_big">
                 <img src="https://raw.githubusercontent.com/wowankz/static/master/shop/img/cat_img_men.jpg" alt="Men" class="category__img">
                 <div class="category__badge">
                     <span class="category__badge-name">HOT DEAL</span>
