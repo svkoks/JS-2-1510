@@ -39,12 +39,14 @@ class BasketService {
     async delete(id) {
         const data = [...this.db.basket];
         let find = this.findItem(data, id);
-        if (find.amount > 1) {
-            this.update(id, 'decrease');
-            return ' ';
+        if (find) {
+            if (find.amount > 1) {
+                this.update(id, 'decrease');
+                return ' ';
+            }
+            data.splice(data.indexOf(find), 1);
+            await this.db.writeStorage('basket', data);
         }
-        data.splice(data.indexOf(find), 1);
-        await this.db.writeStorage('basket', data);
     }
 
     async clear() {

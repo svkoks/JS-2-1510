@@ -4,9 +4,10 @@
     "private": true,
     "scripts": {
         "serve": "start npm run server-serve && vue-cli-service serve",
-        "build": "vue-cli-service build",
+        "build": "vue-cli-service build && npm run server",
         "lint": "vue-cli-service lint",
-        "server-serve": " nodemon server/src "
+        "server-serve": " nodemon server/src ",
+        "server": "start node server/src && start http://localhost:3300/"
     },
     "dependencies": {
         "core-js": "^3.6.5",

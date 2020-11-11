@@ -13,7 +13,7 @@ class DB {
 
     get basket() {
         return this._basket;
-    }
+    } 
 
     set basket(data) {
         this._basket = data;
