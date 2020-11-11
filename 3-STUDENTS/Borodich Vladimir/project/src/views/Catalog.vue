@@ -39,10 +39,10 @@ export default {
     },
     methods:{
          matchPath(path) {
-            const re = /catalog\/.*\/?/;
+            const re = /catalog\/(.*)\/?/;
             const res = path.match(re);
             if (res) {
-                return res[0];
+                return res[1];
             } else {
                  return 'catalog';
                 }

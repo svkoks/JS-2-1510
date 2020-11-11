@@ -1,10 +1,10 @@
 <template>
     <div class="drop-cart__product">
-        <router-link :to="`/product/${item.id}/${item.name.replaceAll(' ', '_')}`" class="drop-cart__product-link">
+        <router-link :to="`/${item.fromCategory}/product/${item.id}/${item.name.replaceAll(' ', '_')}`" class="drop-cart__product-link">
             <img :src="baseImgUrl + item.img" alt="product" class="drop-cart__product-img" />
         </router-link>
         <div class="drop-cart__product-info">
-            <router-link :to="`/product/${item.id}/${item.name.replaceAll(' ', '_')}`" class="drop-cart__product-name">{{
+            <router-link :to="`/${item.fromCategory}/product/${item.id}/${item.name.replaceAll(' ', '_')}`" class="drop-cart__product-name">{{
                 item.name
             }}</router-link>
             <Stars cl="drop-cart__product-stars" :value="item.stars" />

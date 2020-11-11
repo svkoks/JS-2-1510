@@ -47,5 +47,9 @@ class DB {
     getCategory(category) {
         return this.catalog.filter((item) => item.category.includes(category));
     }
+
+    getProduct(id) {
+        return this.catalog.find((item) => item.id == id);
+    }
 }
 module.exports = DB;

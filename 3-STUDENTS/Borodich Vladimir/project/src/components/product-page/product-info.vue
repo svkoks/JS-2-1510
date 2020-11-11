@@ -2,10 +2,10 @@
     <div class="product__info">
         <div class="product__desc ">
             <div class="category-name">
-                WOMEN COLLECTION
+                {{ category }} COLLECTION
                 <div class="category-name__border-button"></div>
             </div>
-            <h1 class="product__info-h1">Moschino Cheap And Chic</h1>
+            <h1 class="product__info-h1">{{ product.name }}</h1>
             <div class="product__stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -14,21 +14,20 @@
                 <i class="fas fa-star-half-alt"></i>
             </div>
             <p class="product__text">
-                Compellingly actualize fully researched processes before proactive outsourcing. Progressively syndicate collaborative
-                architectures before cutting-edge services. Completely visualize parallel core competencies rather than exceptional portals.
+                {{ product.desc }}
             </p>
             <div class="product__property">
                 <div class="property">
                     <span class="property__name">MATERIAL: </span>
-                    <span class="property__value">COTTON</span>
+                    <span class="property__value"> {{ product.material }} </span>
                 </div>
                 <div class="property">
-                    <span class="property__name">DESIGNER:</span>
-                    <span class="property__value"> BINBURHAN</span>
+                    <span class="property__name">DESIGNER: </span>
+                    <span class="property__value"> {{ product.designer }} </span>
                 </div>
             </div>
 
-            <span class="product__price">$561</span>
+            <span class="product__price">${{ product.price }}</span>
             <div class="product__hr"></div>
             <form method="POST" class="product__choose">
                 <div class="product__choose-datalist" data-color="">
@@ -62,11 +61,16 @@
 </template>
 
 <script>
+
 export default {
+    props: {
+        product: Object,
+    },
     data() {
         return {
             amount: 1,
             productId: this.$route.params.id,
+            category: '',
         };
     },
     methods: {
@@ -75,6 +79,7 @@ export default {
         },
     },
     created() {
+        this.category = this.$route.params.category;
         this.productId = this.$route.params.id;
     },
 };

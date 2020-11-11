@@ -19,7 +19,7 @@
                 <h3 class="footer-content__h3">COMPANY</h3>
                 <ul class="footer-menu ">
                     <router-link tag="li" v-for="(item,index) in listMenu.company" :key="index" :to="item.href" class="footer-menu__item">
-                        <a href="#" class="footer-menu__link">{{item.value}}</a>
+                        <a class="footer-menu__link">{{item.value}}</a>
                     </router-link>
                 </ul>
             </div>
@@ -27,7 +27,7 @@
                 <h3 class="footer-content__h3">INFORMATION</h3>
                 <ul class="footer-menu ">
                     <router-link tag="li" v-for="(item,index) in listMenu.information" :key="index" :to="item.href" class="footer-menu__item">
-                        <a href="#" class="footer-menu__link">{{item.value}}</a>
+                        <a  class="footer-menu__link">{{item.value}}</a>
                     </router-link>
                 </ul>
             </div>
@@ -35,7 +35,7 @@
                 <h3 class="footer-content__h3">SHOP CATEGORY</h3>
                 <ul class="footer-menu ">
                     <router-link tag="li" v-for="(item,index) in listMenu['shop-category']" :key="index" :to="item.href" class="footer-menu__item">
-                        <a href="#" class="footer-menu__link">{{item.value}}</a>
+                        <a  class="footer-menu__link">{{item.value}}</a>
                     </router-link>
                 </ul>
             </div>

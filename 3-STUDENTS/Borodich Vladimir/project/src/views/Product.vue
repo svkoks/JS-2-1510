@@ -1,33 +1,41 @@
 <template>
     <main class="main">
         <section class="product">
-            <div class="product__slide-img">
-                <a href="#" class="product__slide-link product__slide-link_left">
-                    <i class="fas fa-angle-left"></i>
-                </a>
-                <img src="https://raw.githubusercontent.com/wowankz/static/master/shop/img/product_img.jpg" alt="product" class="product__img" />
-                <a href="#" class="product__slide-link product__slide-link_right">
-                    <i class="fas fa-angle-right"></i>
-                </a>
-            </div>
-<ProductInfo/>
-            
+            <SliderImg :product="product" v-if="product.sliderImg" />
+            <ProductInfo :product="product" />
         </section>
 
         <!-- section may like -->
-        <CatalogLike/>
+        <CatalogLike />
     </main>
 </template>
 
 <script>
+import { Get } from '@/services/http-service';
+
 import CatalogLike from '@/components/product-page/catalog-like';
 import ProductInfo from '@/components/product-page/product-info';
+import SliderImg from '@/components/product-page/slider-img';
 export default {
-    components:{
+    components: {
         CatalogLike,
-        ProductInfo
+        ProductInfo,
+        SliderImg,
     },
-    
+    data() {
+        return {
+            product: {},
+        };
+    },
+    methods: {
+        async getProduct(url) {
+            let product = await Get(url);
+            this.product = product ? product : {};
+        },
+    },
+    created() {
+        this.getProduct('/api/product/' + this.$route.params.id);
+    },
 };
 </script>
 

@@ -3,7 +3,7 @@
         <h2 class="products__h2">Featured Items</h2>
         <p class="products__desc">Shop for items based on what we featured in this week</p>
             <Catalog 
-            category="catalog/featured"  
+            category="featured"  
             cl="products__content"
             :amount="8"
             />

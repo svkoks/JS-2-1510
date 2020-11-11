@@ -5,14 +5,14 @@ class BasketService {
         Logger.info('BasketService created');
     }
 
-    async add(id, amount = 1) {
+    async add(id, category, amount = 1) {
         let find = this.findItem(this.db.basket, id);
         if (find) {
             await this.update(id, 'increase');
             return ' ';
         }
         find = this.findItem(this.db.catalog, id);
-        const product = Object.assign({}, { amount }, find);
+        const product = Object.assign({}, { amount, fromCategory: category }, find);
         const data = [...this.db.basket];
         data.push(product);
         await this.db.writeStorage('basket', data);
@@ -24,9 +24,11 @@ class BasketService {
         if (find) {
             switch (action) {
                 case 'increase':
+                    if (amount == 0) amount = 1;
                     find.amount += amount;
                     break;
                 case 'decrease':
+                    if (amount == 0) amount = 1;
                     find.amount -= amount;
                     break;
             }

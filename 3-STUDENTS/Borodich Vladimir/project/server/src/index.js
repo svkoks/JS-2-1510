@@ -31,12 +31,13 @@ server.get('/basket', (req, res) => {
 
 server.post('/basket', async (req, res) => {
     Logger.info('POST / basket   ');
-    await basketService.add(req.body.id, req.body.amount);
+    await basketService.add(req.body.id, req.body.category, req.body.amount);
+    console.log(db.basket);
     res.json(db.basket);
 });
 
 server.put('/basket/:action', async (req, res) => {
-    Logger.info('PUT / basket/%s/%s', req.params.action, req.body.id);
+    Logger.info('PUT / basket/%s/%s/%s', req.params.action, req.body.id, req.body.amount);
     await basketService.update(req.body.id, req.params.action, req.body.amount);
     res.json(db.basket);
 });
@@ -46,6 +47,11 @@ server.delete('/basket/:id', async (req, res) => {
     if (req.params.id !== 'all') await basketService.delete(req.params.id);
     else await basketService.clear();
     res.json(db.basket);
+});
+
+server.get('/product/:id', (req, res) => {
+    Logger.info('Get /product/', req.params.id);
+    res.json(db.getProduct(req.params.id));
 });
 
 server.listen(3300, () => {

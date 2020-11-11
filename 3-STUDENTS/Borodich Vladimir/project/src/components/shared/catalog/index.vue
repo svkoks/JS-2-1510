@@ -3,7 +3,7 @@
         <div v-show="catalogItems.length < 1" style="width: 100%;font-size: 5rem;color: #eeeeee;text-align: center;">
             <i class="fas fa-spinner fa-spin"></i>
         </div>
-        <Item v-for="item of items" :key="item.id" :item="item" />
+        <Item v-for="item of items" :key="item.id" :item="item" :category="category" />
     </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
     data() {
         return {
             catalogItems: [],
-            baseUrl: '/api/',
+            baseUrl: '/api/catalog/',
         };
     },
 
@@ -35,7 +35,6 @@ export default {
 
         sortItems() {
             const typeSort = this.$store.state.sortForm.sort;
-            console.log('sort : ', typeSort);
             return this.catalogItems.sort((a, b) => {
                 switch (typeSort) {
                     case 'name':

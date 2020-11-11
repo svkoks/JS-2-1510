@@ -23,7 +23,7 @@ export default {
         },
 
         async addToBasket({ commit, state }, payload) {
-            let find = state.basket.find((item) => item.id == payload.id);console.log(find,payload);
+            let find = state.basket.find((item) => item.id == payload.id);
             if (find) {
                 const data = await Put('/api/basket/increase', { ...payload });
                 if (data) commit('changeBasket', data);

@@ -1,12 +1,15 @@
 <template>
     <div class="shopping-cart__product">
         <div class="shopping-cart__product-details">
-            <router-link :to="`/product/${item.id}/${item.name.replaceAll(' ', '_')}`" class="shopping-cart__product-img">
+            <router-link :to="`/${item.fromCategory}/product/${item.id}/${item.name.replaceAll(' ', '_')}`" class="shopping-cart__product-img">
                 <img :src="baseImgUrl + item.img" alt="product" />
             </router-link>
 
             <div class="shopping-cart__product-info">
-                <router-link :to="`/product/${item.id}/${item.name.replaceAll(' ', '_')}`" class="shopping-cart__product-name">
+                <router-link
+                    :to="`/${item.fromCategory}/product/${item.id}/${item.name.replaceAll(' ', '_')}`"
+                    class="shopping-cart__product-name"
+                >
                     <h3>{{ item.name }}</h3>
                 </router-link>
                 <p class="shopping-cart__product-property">Color: <span>Red</span></p>
@@ -15,7 +18,7 @@
         </div>
         <div class="shopping-cart__product-price">${{ item.price }}</div>
         <div class="shopping-cart__product-quantity">
-            <input @input="updateBasket($event)" type="number" placeholder="2" min="1" :value="item.amount" />
+            <input @change="updateBasket($event)" type="number" placeholder="2" min="1" :value="item.amount" />
         </div>
         <div class="shopping-cart__product-shipping">FREE</div>
         <div class="shopping-cart__product-subtotal">${{ item.price * item.amount }}</div>
@@ -41,8 +44,8 @@ export default {
             this.$store.dispatch('removeFromBasket', { id });
         },
         updateBasket(event) {
-           let val = event.target.value;
-            if (val < 1){
+            let val = event.target.value;
+            if (val < 1) {
                 val = 1;
                 event.target.value = val;
             }
