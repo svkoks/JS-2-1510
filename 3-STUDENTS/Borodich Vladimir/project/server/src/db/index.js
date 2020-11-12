@@ -13,7 +13,7 @@ class DB {
 
     get basket() {
         return this._basket;
-    } 
+    }
 
     set basket(data) {
         this._basket = data;
@@ -36,16 +36,18 @@ class DB {
 
     async writeStorage(name, data) {
         try {
-                await fs.writeFile(path.join(__dirname, 'storage', `${name}.json`), JSON.stringify(data), (err) => {});
-          Logger.info(`Write to storage ${name} successful`);
+            await fs.writeFile(path.join(__dirname, 'storage', `${name}.json`), JSON.stringify(data), (err) => { });
+            Logger.info(`Write to storage ${name} successful`);
             this[name] = data;
         } catch (error) {
             Logger.error(`Write to storage ${name} error`, error);
         }
     }
 
-    getCategory(category) {
-        return this.catalog.filter((item) => item.category.includes(category));
+    getCategory(category, query = { priceFrom: 0, priceTo: 800 }) {
+        let cat = this.catalog.filter((item) => item.category.includes(category))
+            .filter((item) => +item.price >= +query.priceFrom && +item.price <= +query.priceTo);
+        return cat;
     }
 
     getProduct(id) {

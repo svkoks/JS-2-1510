@@ -31,8 +31,9 @@ server.get('/api/catalog', (req, res) => {
 
 server.get('/api/catalog/:category', (req, res) => {
     const params = req.params;
-    Logger.info('Get / catalog/', params.category);
-    res.json(db.getCategory(params.category));
+    const query = req.query;
+    Logger.info('Get / catalog/%s?%s', params.category, query);
+    res.json(db.getCategory(params.category, query));
 });
 
 server.get('/api/basket', (req, res) => {

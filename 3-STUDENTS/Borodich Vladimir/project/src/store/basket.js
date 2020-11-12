@@ -43,9 +43,9 @@ export default {
                 if (data) commit('changeBasket', data);
             }
         },
-        async clearBasket({ commit}) {
-                const data = await Delete('/api/basket/all' );
-                if (data) commit('changeBasket', data);
+        async clearBasket({ commit }) {
+            const data = await Delete('/api/basket/all');
+            if (data) commit('changeBasket', data);
         },
     },
 };
