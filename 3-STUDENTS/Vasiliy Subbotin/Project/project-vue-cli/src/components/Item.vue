@@ -55,7 +55,7 @@ export default {
     },
     methods: {
         add(item) {
-            this.$parent.$parent.$refs.bask.add(item)
+            this.$store.dispatch('changeBasketItems', { item, action: undefined });
         }
     }
 }
