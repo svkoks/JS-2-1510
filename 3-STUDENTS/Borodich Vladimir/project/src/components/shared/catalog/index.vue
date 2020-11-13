@@ -29,7 +29,7 @@
 
 		methods: {
 			async update(){
-				await this.getProducts(this.baseUrl + this.category+`?${this.$store.getters.priceForQuery}`);
+				await this.getProducts(this.baseUrl + this.category+`?${this.$store.getters.priceForQuery}${this.$store.getters.checkedSizeForQuery}`);
 			},
 			async getProducts(url) {
 				let items = await Get(url);

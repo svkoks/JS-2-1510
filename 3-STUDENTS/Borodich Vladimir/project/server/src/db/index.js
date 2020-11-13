@@ -47,6 +47,13 @@ class DB {
     getCategory(category, query = { priceFrom: 0, priceTo: 800 }) {
         let cat = this.catalog.filter((item) => item.category.includes(category))
             .filter((item) => +item.price >= +query.priceFrom && +item.price <= +query.priceTo);
+        if (query.sizes && query.sizes !== '') {
+            return cat.filter((item) => {
+                for (let size of query.sizes.split(',')) {
+                    if (item.size.includes(size.toLowerCase())) return true;
+                }
+            })
+        }
         return cat;
     }
 
