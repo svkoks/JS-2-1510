@@ -22,12 +22,12 @@ export default {
     data() {
         return {
             items: [],
-            url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
+            url: '/api/catalog',
         }
     },
     methods: {
         get(url) {
-            return fetch(url).then(d => d.json())
+            return fetch(url).then(d => d.json());
         } 
     },
     async mounted() {
