@@ -2,15 +2,7 @@
     <div>
         <Header />
         <div class="header__line"></div>
-        <nav class="topNav">
-            <a href="index.html">Home</a>
-            <a href="product.html">Man</a>
-            <a href="single-page.html">Women</a>
-            <a href="#">Kids</a>
-            <a href="#">Accoseriese</a>
-            <a href="#">Featured</a>
-            <a href="#">Hot Deals</a>
-        </nav>
+        <NavBar />
         <div class="brand-top__background">
             <div class="brand-top container">
                 <div class="brand-top__header">
@@ -51,6 +43,9 @@
                 <div class="featured-items__header-bottom">Shop for items based on what we featured in this week</div>
             </div>
             <Catalog />
+            <div class="featured-items__button">
+                <a href="#">Browse All Product <i class="fas fa-long-arrow-alt-right"></i></a>
+            </div>
         </div>
         <div class="special-offer container">
             <div class="special-offer__info">
@@ -94,62 +89,17 @@
 // @ is an alias to /src
 
 import Header from '@/components/Header.vue';
+import NavBar from '@/components/Nav.vue';
 import Catalog from '@/components/Catalog.vue';
 import Footer from '@/components/Footer.vue';
 
 
 export default {
     name: 'Home',
-    components: { Header, Catalog, Footer },
+    components: { Header, NavBar, Catalog, Footer },
     // data() {
     //     return {
     //         cartShow: false
-    //     }
-    // }
-    // methods: {
-    //     get(url) {
-    //         return fetch(url).then(d => d.json()) 
-    //     },
-    //     add(item) {
-    //         let find = this.cart.items.find(cartItem => cartItem.productId == item.productId);
-    
-    //         if (!find) { 
-    //             this.cart.items.push(Object.assign({}, item, { amount: 1 }));
-    //         } else { 
-    //             find.amount++;
-    //         }
-    //     },
-    //     remove(id) {
-    //         let find = this.cart.items.find(cartItem => cartItem.productId == id);
-    
-    //         if (find.amount > 1) {
-    //             find.amount--;
-    //         } else {
-    //             this.cart.items.splice(this.cart.items.indexOf(find), 1)
-    //         }
-    //     },
-    //     totalPrice() {
-    //         let sum = 0;
-    //         for(let item of this.cart.items) {
-    //             sum += item.productPrice * item.amount;
-    //         }
-    //         return sum;
-    //     },
-    //     totalQty() {
-    //         let qty = 0;
-    //         for(let item of this.cart.items) {
-    //             qty += item.amount;
-    //         }
-    //         return qty;
-    //     }
-    // },
-
-    // async mounted() {
-    //     try {
-    //         this.cart.items = (await this.get(this.cart.url)).content;
-    //     }
-    //     catch(err) {
-    //         console.log(err);
     //     }
     // }
 }

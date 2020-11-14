@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="items-catalog" class="featured-items__list">
+        <div id="items-man" class="man-goods__content">
             
             <Item 
                 v-for="item of items" 
@@ -23,7 +23,7 @@ export default {
         return {
             items: [],
             // url: 'https://raw.githubusercontent.com/Eliasz-S/static/main/JSON/catalog.json',
-            url: '/api/catalog',
+            url: '/api/catalogMen'
         }
     },
     async mounted() {
@@ -36,7 +36,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

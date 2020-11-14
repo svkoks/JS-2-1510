@@ -38,6 +38,34 @@
                 </div>
             </div>
         </template>
+        <template v-if="type == 'cart-final'">
+            <div class="shopping-cart-items__details-row">
+                <div>
+                    <img :src="item.productImg" alt="pic">
+                    <div>
+                        <h3>{{ item.productName }}</h3>
+                        <p><span>Color</span>: Red<br><span>Size</span>: Xll</p>
+                    </div>
+                </div>
+                <div>${{ item.productPrice }}</div>
+                <div>
+                    <button @click="$emit('delete', item.productId)" class="far fa-minus-square"></button>
+                    {{ item.amount }}
+                    <button name="add" @click="add(item)" class="far fa-plus-square"></button>
+                </div>
+                <div>free</div>
+                <div>${{ item.productPrice * item.amount }}</div>
+                <div>
+                    <a 
+                        href="#" 
+                        class="fas fa-times-circle"
+                        @click.prevent="$emit('delete', item.productId)"
+                        name="remove"
+                    >
+                    </a>
+                </div>
+            </div>
+        </template>
     </div>
 </template>
 

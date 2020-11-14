@@ -68,9 +68,13 @@
         <div class="footer-main">
             <div class="footer container">
                 <div class="copyright">&copy; 2020 Brand All Rights Reserved.</div>
-                <div class="socials"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a
-                        href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-pinterest-p"></i></a><a
-                        href="#"><i class="fab fa-google-plus-g"></i></a></div>
+                <div class="socials">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://www.google.com/" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+                </div>
             </div>
         </div>
     </footer>

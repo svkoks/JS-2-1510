@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { get } from '@/core/requests';
+import { get, post, put, deleteReq } from '@/core/requests';
 
 Vue.use(Vuex)
 
@@ -36,15 +36,30 @@ export default new Vuex.Store({
       }
       switch (payload.action) {
         case 1: {
-          commit('cart_add', payload.item);
+          post('/api/cart', payload.item)
+            .then(res => {
+                if (res.status) {
+                  commit('cart_add', payload.item);
+                }
+            });
           break;
         }
         case 2: {
-          commit('cart_remove', payload.item);
+          deleteReq('/api/cart/' + payload.item.productId)
+            .then(res => {
+                if (res.status) {
+                  commit('cart_remove', payload.item);
+                }
+            });
           break;
         }
         case 3: {
-          commit('cart_change', { item: payload.item, amount: payload.amount });
+          put('/api/cart/' + payload.item.productId, payload.amount)
+            .then(res => {
+                if (res.status) {
+                  commit('cart_change', { item: payload.item, amount: payload.amount });
+                }
+            });
           break;
         }
       }

@@ -1,7 +1,7 @@
 <template>
     <header class="header container">
         <div class="header__left">
-            <a href="index.html" class="header__logo"><img src="@/assets/img/logo.png" alt="logo"> Bran<span>d</span></a>
+            <router-link to="/" class="header__logo"><img src="@/assets/img/logo.png" alt="logo"> Bran<span>d</span></router-link>
             <form action="#" class="header__search" method="get">
                 <input type="checkbox" id="browse-checkbox">
                 <label for="browse-checkbox" class="browse">Browse <i class="fas fa-caret-down"></i></label>

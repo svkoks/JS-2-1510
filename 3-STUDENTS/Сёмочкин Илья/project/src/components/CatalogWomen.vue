@@ -1,14 +1,12 @@
 <template>
-    <div>
-        <div id="items-catalog" class="featured-items__list">
-            
-            <Item 
+    <div id="items-matched" class="matched-items__list">
+        
+        <Item 
                 v-for="item of items" 
                 :key="item.productId"
                 :item="item"
             />
-            
-        </div>
+
     </div>
 </template>
 
@@ -23,7 +21,7 @@ export default {
         return {
             items: [],
             // url: 'https://raw.githubusercontent.com/Eliasz-S/static/main/JSON/catalog.json',
-            url: '/api/catalog',
+            url: '/api/catalogWomen'
         }
     },
     async mounted() {
@@ -36,7 +34,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

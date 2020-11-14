@@ -1,49 +1,84 @@
 <template>
-    <div class="header__cart" id='header-cart'>
-        <img 
-            src="@/assets/img/cart.png" 
-            alt="cart" 
-            id="toggle-cart"
-            @click="cartShow = !cartShow"
-            >
-        <div class="qty" id="qty">
-            {{ totalQty() }}
+    <div>
+        <Header />
+        <div class="header__line"></div>
+        <NavBar />
+        <div class="new-arrivals-main">
+            <div class="new-arrivals container">
+                <h2>New Arrivals</h2>
+                <div class="new-arrivals__breadcrumbs"><router-link to="/">Home</router-link> / <router-link to="/men">Men</router-link> / <a href="#">New Arrivals</a></div>
+            </div>
         </div>
-        <div class="cart-dropdown" v-show="cartShow">
+        <div class="shopping-cart-items container">
+            <div class="shopping-cart-items__headers-row">
+                <div>Product Details</div>
+                <div>Unite Price</div>
+                <div>Quantity</div>
+                <div>Shipping</div>
+                <div>Subtotal</div>
+                <div>Action</div>
+            </div>
             <Item 
                 v-for="item of items"
-                type="cart"
+                type="cart-final"
                 :key="item.productId"
                 :item="item"
                 @delete="remove"
             />
-            <div id="sum">
-                <div id="total" class="cart-dropdown__sum">
-                    <div>total</div>
-                    <div>${{ totalPrice() }}</div>
-                </div>
-            </div>
-            <div class="cart-dropdown__buttons">
-                <router-link to="/checkout">checkout</router-link>
-                <router-link to="/shopping-cart">go to cart</router-link>
+            <div class="shopping-cart-items__buttons">
+                <a href="#">clear shopping cart</a><a href="#">continue shopping</a>
             </div>
         </div>
+        <div class="delivery-details container">
+            <div class="delivery-details__shipping-address">
+                <h2>Shipping Address</h2>
+                <div>
+                    <input type="text" value="Bangladesh">
+                    <a href="#"><i class="fas fa-caret-down"></i></a>
+                </div>
+                <input type="text" placeholder="State">
+                <input type="text" placeholder="Postcode/Zip">
+                <a href="#">get a quote</a>
+            </div>
+            <div class="delivery-details__coupon-discount">
+                <h2>coupon discount</h2>
+                <p>Enter your coupon code if you have one</p>
+                <input type="text" placeholder="State">
+                <a href="#">apply coupon</a>
+            </div>
+            <div class="delivery-details__checkout">
+                <div class="delivery-details__checkout-inner">
+                    <div>
+                        <h4>Sub total&emsp;${{ totalPrice() }}</h4>
+                        <h2>GRAND TOTAL&emsp;<span>${{ totalPrice() }}</span></h2>
+                    </div>
+                    <div>
+                        <router-link to="/checkout">checkout</router-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Footer />
     </div>
 </template>
 
 <script>
 
+import Header from '@/components/Header.vue';
+import NavBar from '@/components/Nav.vue';
+import Footer from '@/components/Footer.vue';
+import Item from '@/components/Item.vue';
 import { get, post, put, deleteReq } from '@/core/requests';
-import Item from './Item.vue';
 import { mapGetters } from 'vuex';
 
 export default {
-    components: { Item },
+    name: 'ShoppingCart',
+    components: { Header, NavBar, Item, Footer },
     data() {
         return {
             // url: 'https://raw.githubusercontent.com/Eliasz-S/static/main/JSON/cart.json',
             url: '/api/cart', 
-            cartShow: false
+            // cartShow: false
         }
     },
     async mounted() {
