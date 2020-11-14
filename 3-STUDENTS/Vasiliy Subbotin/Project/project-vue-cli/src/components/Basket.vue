@@ -12,7 +12,7 @@
 
 <script>
 import Item from './Item.vue';
-import { get } from '@/core/requests';
+import { get, post, put, deleteReq } from '@/core/requests';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -23,17 +23,7 @@ export default {
           url: '/api/basket',
     }
   },
-  methods: {
-    add(product) {
-        let find = this.items.find(el => el.productId == product.productId);
-            if (!find) {
-                this.$store.dispatch('changeBasketItems', { item: newItem, action: 1 })
-            } else {
-                this.$store.dispatch('changeBasketItems', { item: find, action: 3, amount: 1 });
-
-              
-            }
-    },        
+  methods: {   
     remove(id) {
         let find = this.items.find(el => el.productId == id);
         if (find.amount > 1) {
