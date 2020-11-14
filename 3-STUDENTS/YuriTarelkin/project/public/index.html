@@ -29,34 +29,34 @@
                     <div id="cart-badge" class="header__cart-badge">0</div>
                     <img src="../src/assets/img/cart.jpg" alt="card" class="header__cart-img">
                 </a>
-                <div class="drop-cart" v-show="basket.show">
-                    <div id="basket" >
-                        <div 
-                            class="drop-cart__product"
-                            v-for="item of basket.items"
-                            :key="item.productId"
-                        >
-                            <a href="product.html" class="drop-cart__product-link">
-                                <img :src="item.productImg"
-                                    alt="product" class="drop-cart__product-img">
-                            </a>
-                            <div class="drop-cart__product-info">
-                                <a href="product.html" class="drop-cart__product-name">{{ item.productName }}</a>                                
-                                <div class="drop-cart__product-price">
-                                    <span class="drop-cart__product-count">{{ item.amount }} </span> x {{ item.productPrice }}
-                                    <span class="drop-cart__product-sum"> = {{ item.productPrice * item.amount }}</span>
-                                </div>
-                            </div>
-                            <a href="#" data-id="${this.item.productId}" name="remove" class="drop-cart__product-close far fa-times-circle" @click="remove(item.productId)"></a>
-                        </div>  
-                    </div>
-                    <div class="drop-cart__total">
-                        <span class="drop-cart__total-name">TOTAL</span>
-                        <span id="basket-total" class="drop-cart__total-sum">$500.00</span>
-                    </div>
-                    <a id="checkout-button" href="Checkout.html" class="drop-cart__button">Checkout</a>
-                    <a id="go-cart" href="shopping-cart.html" class="drop-cart__button">Go to cart</a>
-                </div>
+                                        <div class="drop-cart" v-show="basket.show">
+                                            <div id="basket" >
+                                                <div 
+                                                    class="drop-cart__product"
+                                                    v-for="item of basket.items"
+                                                    :key="item.productId"
+                                                >
+                                                    <a href="product.html" class="drop-cart__product-link">
+                                                        <img :src="item.productImg"
+                                                            alt="product" class="drop-cart__product-img">
+                                                    </a>
+                                                    <div class="drop-cart__product-info">
+                                                        <a href="product.html" class="drop-cart__product-name">{{ item.productName }}</a>                                
+                                                        <div class="drop-cart__product-price">
+                                                            <span class="drop-cart__product-count">{{ item.amount }} </span> x {{ item.productPrice }}
+                                                            <span class="drop-cart__product-sum"> = {{ item.productPrice * item.amount }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" data-id="${this.item.productId}" name="remove" class="drop-cart__product-close far fa-times-circle" @click="remove(item.productId)"></a>
+                                                </div>  
+                                            </div>
+                                            <div class="drop-cart__total">
+                                                <span class="drop-cart__total-name">TOTAL</span>
+                                                <span id="basket-total" class="drop-cart__total-sum">$500.00</span>
+                                            </div>
+                                            <a id="checkout-button" href="Checkout.html" class="drop-cart__button">Checkout</a>
+                                            <a id="go-cart" href="shopping-cart.html" class="drop-cart__button">Go to cart</a>
+                                        </div>
                 <a href="Checkout.html" class="header__account-bar">My account <i class="fas fa-caret-down"></i></a>
             </div>
         </header>
@@ -102,29 +102,7 @@
         <div class="featuredItems container">
             <div class="featuredItems__title">Featured Items<br><span>Shop for items based on what we featured in this week</span></div>
             <div class="catalogBarBox container">           
-                <div
-                    class="catalogBar" 
-                    id="catalog" 
-                    v-for="item of catalog.items" 
-                    :key="item.productId" >            
-                    <div class="hot-offer">
-                        <div class="hot-offer__shadow">
-                            <img :src="item.productImg" alt="t-shirt">
-                            <div class="hot-offer__hover">
-                                <div class="hot-offer__square">
-                                    <button 
-                                        name="add"
-                                        @click="add(item)"                                    
-                                    ><img src="../src/assets/img/cart_white.png" alt="order">Add to Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="single.html">{{ item.productName }}</a>
-                        <h3>
-                            ${{ item.productPrice}}                       
-                        </h3>
-                    </div>
-                </div>
+                
             </div>
             <a href="Product.html" class="catalogBar__browseProducts">Browse All Product <i class="fas fa-long-arrow-alt-right"></i></a>
         </div>

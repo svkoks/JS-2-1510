@@ -19,6 +19,8 @@ export default {
     data() {
         return {
             url: '/api/basket'
+            // url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json'
+        }
     },
     async mounted() {
         try {

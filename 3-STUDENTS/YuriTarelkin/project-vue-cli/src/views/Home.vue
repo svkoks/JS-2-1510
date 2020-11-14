@@ -1,16 +1,14 @@
 <template>
   <div>
-    <div class="header container">
-      <div class="header__left">
-          <a class="header__logo" href="index.html">
-              <img src="@/assets/img/logo.png" alt="logo">bran <span>d</span>
-          </a>
-          <form class="header__search">
-              <a href="#" class="header__browse">Browse <i class="fas fa-caret-down"></i></a>
-                  <input type="text" placeholder="Search for item">
-                  <button class="header__search-button"><i class="fas fa-search"></i></button>
-          </form>
-      </div>
+    <header class="header container">
+            <div class="header__left">
+                <a href="index.html" class="header__logo"><img src="../src/assets/img/logo.jpg" alt="logo"> Bran<span>d</span></a>
+                <form class="header__search">
+                    <div class="header__browse">Browse <i class="fas fa-caret-down"></i></div>
+                    <input name="search" type="text" placeholder="Search for Item...">
+                    <button><i class="fas fa-search"></i></button>
+                </form>
+            </div>
       <div class="header__right">
           <a 
               href="#" 
@@ -34,192 +32,171 @@
           <a href="#" class="button">My Account<i class="fas fa-caret-down"></i></a>
           <a href="#" class="icon-user"><i class="fas fa-user-alt"></i></a>
       </div>
+  </header>
+  <div class="header__line"></div>
+    <div class="main__menu">
+        <a href="index.html" class="main__menu-active">Home</a>
+        <a href="Product.html">Man</a>
+        <a href="Single-page.html">Women</a>
+        <a href="#">Kids</a>
+        <a href="#">Accoseriese</a>
+        <a href="#">Featured</a>
+        <a href="#">Hot Deals</a>
+    </div>
+  <div class="firstImage">
+            <div class="firstImage__contente container">
+                <div class="firstImage__contente-left">
+                    <div class="firstImage__contente-left-line"></div>
+                    <div class="firstImage__contente-left-text"><span class="firstImage__contente-left-bigtext">THE BRAND</span><br> OF LUXERIOUS <span class="firstImage__contente-left-pinktext">FASHION</span></div>
+                </div>
+                <div class="firstImage__contente-right">
+                    <img src="../src/assets/img/curlyman.png" alt="curlyman">
+                </div>
+            </div>
+    </div>
+  <div class="typeBar container">
+            <div class="typeBar__products_and-offers1">
+                <a href="#"><img src="../src/assets/img/ForMan.jpg" alt="forMan"></a>
+                <div class="typeBar__products_and-offers1-contente">Hot deal<br><span>for men</span></div>
+            </div>
+            <div class="typeBar__products_and-offers2">
+                <a href="#"><img src="../src/assets/img/accesories.jpg" alt="accesories"></a>
+                <div class="typeBar__products_and-offers2-contente">LUXIROUS &amp; trendy<br><span>accesories</span></div>
+            </div>
+            <div class="typeBar__products_and-offers3">
+                <a href="#"><img src="../src/assets/img/women.jpg" alt="women"></a>
+                <div class="typeBar__products_and-offers3-contente">30% offer<br><span>women</span></div>
+            </div>
+            <div class="typeBar__products_and-offers4">
+                <a href="#"><img src="../src/assets/img/forKids.jpg" alt="forKids"></a>
+                <div class="typeBar__products_and-offers4-contente">new arrivals<br><span>FOR kids</span></div>
+            </div>
+        </div>
+  <div class="featuredItems container">
+            <div class="featuredItems__title">Featured Items<br><span>Shop for items based on what we featured in this week</span></div>
+            <div class="catalogBarBox container">           
+                <Catalog />
+            </div>
+            <a href="Product.html" class="catalogBar__browseProducts">Browse All Product <i class="fas fa-long-arrow-alt-right"></i></a>
   </div>
-  <div class="header_line"></div>
-  <div class="topNav">
-      <a href="product.html">Home</a>
-      <a href="product.html">Man</a>
-      <a href="product.html">Women</a>
-      <a href="product.html">Kids</a>
-      <a href="product.html">Accessories</a>
-      <a href="product.html">Featured</a>
-      <a href="product.html">Hot Deals </a>
-  </div>
-  <div class="image-frame">
-      <div class="container second-block">
-          <div class="forBorder">
-              <div class="theBrand">The Brand</div>
-              <div class="ofLuxerious">of luxerious <span>fashion</span></div>
-          </div>
-      </div>
-  </div>
-  <!--div class="container hot-offers">
-    <div class="hot-offers__left">
-          <a class="hot-offers__square">
-              <img src="@/assets/img/Layer 30.jpg" alt="">
-              <div class="hot-offers__text">
-                  <div class="hot-offers__upper-text">
-                      hot deal
-                  </div>
-                  <div class="hot-offers__under-text">
-                      for men
-                  </div>
-              </div>
-          </a>
-          <a class="hot-offers__square">
-              <img src="@/assets/img/Layer 37.jpg" alt="">
-              <div class="hot-offers__text">
-                  <div class="hot-offers__upper-text">
-                      luxirous &amp; trendy
-                  </div>
-                  <div class="hot-offers__under-text">
-                      accesories
-                  </div>
-              </div>
-          </a>
-      </div>
-      <div class="hot-offers__right">
-          <a class="hot-offers__square">
-              <img src="@/assets/img/Layer 32.jpg" alt="">
-              <div class="hot-offers__text">
-                  <div class="hot-offers__upper-text">
-                      30% offer
-                  </div>
-                  <div class="hot-offers__under-text">
-                      women
-                  </div>
-              </div>
-          </a>
-          <a class="hot-offers__square">
-              <img src="@/assets/img/Layer 31.jpg" alt="">
-              <div class="hot-offers__text">
-                  <div class="hot-offers__upper-text">
-                      new arrivals
-                  </div>
-                  <div class="hot-offers__under-text">
-                      for kids
-                  </div>
-              </div>
-          </a>
-      </div>
-  </div-->
-  <div class="container featured-items">
-      <div class="featured-items__title">
-          <h2>Featured Items</h2>
-          <h4>Shop for items based on what we featured in this week</h4>
-      </div>
+  <div class="mainSpecialOffer container">
+            <div class="mainSpecialOffer__left">
+                <div class="mainSpecialOffer__discount">
+                    <div class="mainSpecialOffer__discountValue">30% <span>OFFER</span></div>
+                    <div class="mainSpecialOffer__discountTarget">FOR WOMEN</div>
+                </div>
+            </div>
+            <div class="mainSpecialOffer__rigth">
+                <div class="mainSpecialOffer__rigth-block">
+                    <img src="../src/assets/img/delivery.svg" alt="delivery">
+                    <div class="mainSpecialOffer__rigth-caption">Free Delivery</div>
+                    <div class="mainSpecialOffer__rigth-description">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</div>
+                </div>
+                <div class="mainSpecialOffer__rigth-block">
+                    <img src="../src/assets/img/sales.svg" alt="sales">
+                    <div class="mainSpecialOffer__rigth-caption">Sales &amp; discounts</div>
+                    <div class="mainSpecialOffer__rigth-description">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</div>
+                </div>
+                <div class="mainSpecialOffer__rigth-block">
+                    <img src="../src/assets/img/quality.svg" alt="quality">
+                    <div class="mainSpecialOffer__rigth-caption">Quality assurance</div>
+                    <div class="mainSpecialOffer__rigth-description">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</div>
+                </div>
 
-      <Catalog />
-      
-  </div>  <!-- End of div.featured-items-->
-  <div class="container offer-women">
-  <div class="offer-women__dicount">
-      <h2>30% <span>offer</span></h2>
-      <h3>for women</h3>
-  </div>
-      <div class="offer-women__bonus">
-          <div class="offer-women__pic"><img src="@/assets/img/car.png" alt=""></div>
-          <div class="offer-women__text">
-              <h3>Free Delivery</h3>
-              <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
-          </div>
-      </div>
-      <div class="offer-women__bonus">
-          <div class="offer-women__pic"><img src="@/assets/img/proc.png" alt=""></div>
-          <div class="offer-women__text">
-              <h3>Sales &amp; discounts</h3>
-              <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
-          </div>
-      </div>
-      <div class="offer-women__bonus">
-          <div class="offer-women__pic"><img src="@/assets/img/corona.png" alt=""></div>
-          <div class="offer-women__text">
-              <h3>Quality assurance</h3>
-              <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
-          </div>
-      </div>
-  </div><!-- End of .offer-women -->
-  <div class="subscibe"><div class="subscibe-shadow">
-  <div class="container subscibe_wrapper">
-      <div class="subscribe-left">
-          <img src="@/assets/img/subsribe-face.png" alt="face">
-          <div>
-          <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi, 
-  a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</p>
-          <h4>Bin Burhan</h4>
-          <p>Dhaka, Bd</p>
-          <div class="subscribe-pagination">
-              <a href="#"></a>
-              <a href="#"></a>
-              <a href="#"></a>
-          </div>
-          </div>
-      </div>
-      <div class="subscribe-border"></div>
-      <div class="subscribe-right">
-          <h3>subscribe</h3>
-          <h4>for our newletter and promotion</h4>
-          <form action="">
-              <input type="text" placeholder="Enter your Email">
-              <button>Subscribe</button>
-          </form>
-      </div>
-  </div> <!-- End of .subscibe_wrapper -->
-  </div></div> <!-- End of .subscibe -->
-  <div class="container footer-menu">
-      <div class="footer-menu__left">
-          <a class="header__logo" href="index.html">
-              <img src="@/assets/img/logo.png" alt="logo">bran <span>d</span>
-          </a>
-          <p>
-              Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships.
-          </p>
-          <p>
-              Efficiently plagiarize 24/365 action items and focused infomediaries. Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.
-          </p>
-
-      </div>
-      <div class="footer-menu__right">
-          <div class="footer-menu__right-item">
-              <h3>company</h3>
-              <a href="#">Home</a>
-              <a href="#">Shop</a>
-              <a href="#">About</a>
-              <a href="#">How It Works</a>
-              <a href="#">Contact</a>
-          </div>
-          <div class="footer-menu__right-item">
-              <h3>information</h3>
-              <a href="#">Terms and Conditions</a>
-              <a href="#">Privacy Polocy</a>
-              <a href="#">How to Buy</a>
-              <a href="#">How to Sell</a>
-              <a href="#">Promotion</a>
-          </div>
-          <div class="footer-menu__right-item">
-              <h3>shop category</h3>
-              <a href="#">Men</a>
-              <a href="#">Women</a>
-              <a href="#">Child</a>
-              <a href="#">Apparel</a>
-              <a href="#">Browse All</a>
-          </div>
-      </div>  <!-- End of footer-menu__right -->
-  </div> <!-- End of footer-menu -->
-  <div class="footer">
-      <div class="container footer_center">
-          <div>
-              &copy; 2017  Brand  All Rights Reserved.
-          </div>
-          <div>
-              <a href="#" class="footer__social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="footer__social"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="footer__social"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" class="footer__social"><i class="fab fa-pinterest-p"></i></a>
-              <a href="#" class="footer__social"><i class="fab fa-google-plus-g"></i></a>
-          </div>
-      </div>
-  </div>
+            </div>
+    </div>
+  <footer>
+        <div class="subscribe">
+            <div class="subscribe__contente container">
+                <div class="subscribe__contente-left">
+                    <div class="subscribe__icon"><img src="../src/assets/img/subscribe_icon.jpg" alt="author"></div>
+                    <div class="subscribe__contente-left-text">
+                        <div class="subscribe__contente-left-message">
+                            “Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”
+                        </div>
+                        <div class="subscribe__contente-left-author">
+                            Bin Burhan <span>Dhaka, Bd</span>
+                        </div>
+                        <div class="subscribe__contente-left-lines">
+                            <div class="subscribe__contente-left-line1"></div>
+                            <div class="subscribe__contente-left-line2"></div>
+                            <div class="subscribe__contente-left-line3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subscribe__contente-right">
+                    <div class="subscribe__contente-right-formCapture">
+                        <div class="subscribe__contente-right-formCaptureHeader">Subscribe</div>
+                        <span>FOR OUR NEWLETTER AND PROMOTION</span>
+                    </div>
+                    <form class="subscribe__contente-right-form">
+                        <input name="email" type="text" placeholder="Enter Your Email">
+                        <button>Subscribe</button>
+                    </form>
+                </div>
+         </div>
+     </div>
+        <div class="contacts">
+            <div class="contacts__contente container">
+                <div class="contacts__contente-left">
+                    <a href="index.html" class="header__logo"><img src="../src/assets/img/logo.jpg" alt="logo"> Bran<span>d</span></a>
+                    <div class="contacts__contente-left-text">
+                        Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships. <br><br>
+                        Efficiently plagiarize 24/365 action items and focused infomediaries.
+                        Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.<br>
+                     Objectively strategize seamless relationships via resource sucking testing procedures. Proactively cultivate next-generation results for value-added methodologies. Dynamically plagiarize unique methodologies after performance based methodologies. Monotonectally empower stand-alone mindshare rather than ubiquitous opportunities. Dynamically orchestrate resource sucking scenarios after alternative synergy.
+                     Compellingly envisioneer corporate methods of empowerment before standards compliant technologies. Objectively facilitate progressive.
+                    </div>
+                </div>
+                <div class="contacts__contente-right">
+                    <div class="contacts__contente-right-column">
+                        <span>COMPANY</span>
+                        <div class="contacts__contente-right-column-menu">
+                            <a href="#">Home</a>
+                            <a href="#">Shop</a>
+                            <a href="#">About</a>
+                            <a href="#">How It Works</a>
+                            <a href="#">Contact</a>
+                        </div>
+                    </div>
+                    <div class="contacts__contente-right-column">
+                        <span>INFORMATION</span>
+                        <div class="contacts__contente-right-column-menu">
+                            <a href="#">Tearms &amp; Condition</a>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">How to Buy</a>
+                            <a href="#">How to Sell</a>
+                            <a href="#">Promotion</a>
+                        </div>
+                    </div>
+                    <div class="contacts__contente-right-column">
+                        <span>SHOP CATEGORY</span>
+                        <div class="contacts__contente-right-column-menu">
+                            <a href="#">Men</a>
+                            <a href="#">Women</a>
+                            <a href="#">Child</a>
+                            <a href="#">Apparel</a>
+                            <a href="#">Brows All</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer__contente container">
+                <div class="footer__contente-left">
+                &copy; 2017  Brand  All Rights Reserved.
+                </div>
+                <div class="footer__contente-right">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 </template>
 
