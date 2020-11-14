@@ -12,7 +12,8 @@ module.exports = {
     mode: 'development',
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html'
+            template: './public/index.html',
+            minify: false
         }),
         new CopyPlugin({
             patterns: [{ from: './src/assets/img', to: './img'}],
