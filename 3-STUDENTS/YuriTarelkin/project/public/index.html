@@ -47,7 +47,7 @@
                                     <span class="drop-cart__product-sum"> = {{ item.productPrice * item.amount }}</span>
                                 </div>
                             </div>
-                            <a href="#" data-id="${this.item.productId}" name="remove" class="drop-cart__product-close far fa-times-circle"></a>
+                            <a href="#" data-id="${this.item.productId}" name="remove" class="drop-cart__product-close far fa-times-circle" @click="remove(item.productId)"></a>
                         </div>  
                     </div>
                     <div class="drop-cart__total">
