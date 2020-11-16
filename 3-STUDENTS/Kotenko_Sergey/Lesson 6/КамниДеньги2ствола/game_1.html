@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      .rock,
+      .scr,
+      .paper {
+        width: 100px;
+        height: 100px;
+      }
+      img {
+        width: 500px;
+      }
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+      .silver {
+        color: silver;
+      }
+      .allGame {
+        display: flex;
+      }
+      .resultAll {
+        border: 1px solid #000;
+        margin-left: 50px;
+        width: 500px;
+        min-height: 700px;
+      }
+      #allGamePicture {
+        display: flex;
+        width: 500px;
+        justify-content: space-between;
+      }
+      .btn {
+        margin-top: 50px;
+      }
+      .textPlay {
+        margin-left: 200px;
+        color: blueviolet;
+        font-size: 23px;
+      }
+      .center {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .divGame {
+        border: 1px solid #000;
+      }
+    </style>
+    <div class="container">
+      <div id="start"></div>
+
+      <div class="allGame">
+        <div class="divGame">
+          <div id="allGamePicture">
+            <div class="center">
+              <img
+                src="../GameRockScissorsPaper/img/rock.png"
+                alt=""
+                class="rock"
+              />
+              <button onclick="rock_game(0)">Rock</button>
+            </div>
+            <div class="center">
+              <img
+                src="../GameRockScissorsPaper/img/scr.png"
+                alt=""
+                class="scr"
+              />
+              <button onclick="rock_game(1)">Scissors</button>
+            </div>
+            <div class="center">
+              <img
+                src="../GameRockScissorsPaper/img/paper.png"
+                alt=""
+                class="paper"
+              />
+              <button onclick="rock_game(2)">Paper</button>
+            </div>
+          </div>
+          <div id="app"></div>
+        </div>
+
+        <div class="resultAll">
+          <div id="reluslt">
+            <p class="textPlay">Статистика:</p>
+            <p>
+              <strong>
+                Luke Skywalker:
+                <span id="user-variant"></span>
+              </strong>
+            </p>
+            <p>
+              <strong>
+                Darth Vader:
+                <span id="pc-variant"></span>
+              </strong>
+            </p>
+            <p id="score"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function rock_game(user) {
+        let dartVader = Math.floor(Math.random() * 3);
+        let objectMe = ["Rock", "Scissors", "Paper"];
+        let game = {
+          user: user,
+          dart: dartVader,
+          winner: null,
+          check() {
+            let winner = null;
+            if (
+              (this.user == 0 && this.dart == 1) ||
+              (this.user == 1 && this.dart == 2) ||
+              (this.user == 2 && this.dart == 0)
+            ) {
+              console.log("Вы одолели властителя чёрной звезды");
+              container.innerHTML =
+                '<h2 class="green">Вы одолели властителя чёрной звезды:</h2><img src="img/3.jpg">';
+              this.winner = "Luke Skywalker";
+            } else if (this.user == this.dart) {
+              console.log("Ничья");
+              container.innerHTML =
+                '<h2 class="silver">Ничья</h2><img src="img/2.jpg">';
+              this.winner = "Both";
+            } else {
+              console.log("Победил властитель чёрной звезды");
+              container.innerHTML =
+                '<h2 class="red">Победил властитель чёрной звезды:</h2><img src="img/1.jpg">';
+              this.winner = "Darth Vader";
+            }
+            this._render();
+          },
+          _render() {
+            let userText = objectMe[this.user];
+            let pcText = objectMe[this.dart];
+
+            let userSpan = document.querySelector("#user-variant");
+            let pcSpan = document.querySelector("#pc-variant");
+            let resultBlock = document.querySelector("#score");
+
+            userSpan.innerText = userText;
+            pcSpan.innerText = pcText;
+
+            resultBlock.innerHTML += `${this.winner} победил; Luke Skywalker: ${userText}, Darth Vader: ${pcText}<br>`;
+          },
+        };
+        game.check();
+      }
+      // console.log(dartVader) - проверка
+    </script>
+
+    <script>
+      // let container = document.getElementById('app')
+      // start_1.innerText = 'Попробуй одолеть тёмного властетиля:';
+      let start_1 = document.getElementById("start");
+      start_1.innerHTML =
+        '<h1>Попробуй одолеть тёмного властителя:</h1><p class="textPlay">Жмякай кнопку ....</p>';
+      let container = document.querySelector("#app");
+    </script>
+  </body>
+</html>

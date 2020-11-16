@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="game">
+      <label for="player">Введите Ваше число с неповторяющимися цифрами</label>
+      <br />
+      <input type="text" id="player" />
+      <input
+        type="button"
+        id="guess"
+        value="Отправить число"
+        onclick="bullsCows_game.het()"
+      />
+    </div>
+    <div id="cow"></div>
+    <!-- <img src="../Учить/1/bull.jpg" /> -->
+
+    <script>
+      let bullsCows_game = {
+        // Перевод input в массив
+        het() {
+          let arr = [];
+          let playerNumber = document.querySelector("#player").value;
+          for (let i = 0; i < 4; i++) {
+            arr.push(+playerNumber.charAt(i));
+          }
+          // return arr;
+          this.check(arr);
+        },
+        // Получение рандомного чила до 10
+        getRnd() {
+          return Math.floor(Math.random() * 10);
+        },
+        // Делаем Неповторяющиеся числа из рандомных
+        getNumber() {
+          let arr = [];
+          while (arr.length < 4) {
+            let rnd = this.getRnd();
+            if (!arr.includes(rnd)) {
+              arr.push(rnd);
+            }
+          }
+          return arr;
+        },
+        // Ходы. 10 устнавливает что максимум
+        round: 10,
+        // Проверка и что будет выводится
+        check(par) {
+          let cows = 0;
+          let bulls = 0;
+          // bulls = document.getElementById("cow");
+          // let c = document.getElementById("cow");
+          // let result_div = document.createElement("div");
+          // c.innerHTML = '<img src="../Учить/1/bull.jpg" />';
+          for (i = 0; i < 4; i++) {
+            if (par[i] == this.compNumber[i]) {
+              bulls++;
+              // for (let g = 0; g < bulls; g++) {
+              //   // c.innerHTML = '<img src="../Учить/1/bull.jpg" />';
+              //   result_div.appendChild(c);
+              // }
+            } else if (this.compNumber.indexOf(par[i]) >= 0) {
+              cows++;
+            }
+          }
+          if (isNaN(par)) {
+            this.round--;
+            console.log(
+              `Ваше число:${par}  Быки:${bulls}   Коровы:${cows}    Осталось попыток : ${this.round}`
+            );
+          } else {
+            console.log("");
+          }
+
+          if (this.round == 0 || bulls == 4) {
+            let result = "Поражение, не парся, попробуй ещё";
+
+            if (bulls == 4) {
+              result = "Красава";
+            }
+
+            console.log(`${result}\nЗагадонное число: ${this.compNumber} `);
+          }
+        },
+      };
+      // Чтобы рандомное число не генерировалось заново во время отгадывания
+      bullsCows_game.compNumber = bullsCows_game.getNumber();
+      // console.log(bullsCows_game.compNumber); - Проверка
+    </script>
+  </body>
+</html>
