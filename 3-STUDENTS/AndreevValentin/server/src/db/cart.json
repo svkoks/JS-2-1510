@@ -1,0 +1,16 @@
+[
+	{
+		"id": 2,
+		"name": "Strawberry people T-shirt",
+		"price": 5500,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/2.jpg",
+		"qty": 2
+	},
+	{
+		"id": 3,
+		"name": "Orange people T-shirt",
+		"price": 6700,
+		"img": "https://raw.githubusercontent.com/VoidPhantom/gbimg/master/3.jpg",
+		"qty": 1
+	}
+]

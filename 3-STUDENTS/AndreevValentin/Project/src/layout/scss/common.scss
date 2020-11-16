@@ -1,7 +1,6 @@
 @use "shared";
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap");
-@import url("https://pagecdn.io/lib/font-awesome/5.14.0/css/all.min.css");
 
 * {
 	margin: 0;
@@ -235,13 +234,19 @@ input[type="submit"] {
 	}
 
 	&__cart {
-		background: url("../../assets/img/cart.svg") no-repeat center;
 		width: 40px;
 		height: 40px;
 		margin: {
 			top: 4px;
 			right: 26px;
 		}
+	}
+
+	&__cartLink {
+		background: url("../../assets/img/cart.svg") no-repeat center;
+		width: 40px;
+		height: 40px;
+		display: block;
 		transition: transform 0.1s;
 
 		&:hover {
