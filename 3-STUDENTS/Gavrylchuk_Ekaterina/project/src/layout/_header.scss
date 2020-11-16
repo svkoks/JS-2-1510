@@ -1,0 +1,242 @@
+@import "variables";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  height: 100px;
+
+  .header__right,
+  .header__left {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.header__logo {
+  display: flex;
+  justify-content: center;
+  margin-right: 37px;
+  font-family: Lato;
+  color: $subColorBlack;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 50px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.68px;
+  transition-duration: .3s;
+
+  span {
+    color: $mainColor;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.68px;
+    line-height: 50px;
+    font-size: 27px;
+  }
+
+  img {
+    margin-right: 13px;
+  }
+}
+
+.header__logo:hover {
+  color: $mainColor;
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px 0 0 3px;
+  overflow: hidden;
+
+  .header__browse {
+    width: 87px;
+    height: 38px;
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #e6e6e6;
+    border-left: hidden;
+    background-color: #cdcdcc;
+    background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%);
+    text-align: center;
+
+    a {
+      color: #838383;
+      font-family: Lato;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 40px;
+      text-decoration: none;
+      transition-duration: .5s;
+    }
+
+    a:hover {
+      color: $mainColor;
+    }
+  }
+
+  .search {
+    width: 280px;
+    height: 38px;
+    padding-left: 16px;
+    border: none;
+    outline: none;
+    color: $subColorBlack;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 32px;
+    letter-spacing: 0.35px;
+
+  }
+
+  div:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 38px;
+    border: none;
+    border-left: 1px solid #e6e6e6;
+    outline: none;
+    background-color: $subColorWhite;
+  }
+}
+
+.fa-search {
+  width: 14px;
+  height: 14px;
+  color: #a4a4a4;
+  font-family: "Font Awesome";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.35px;
+  transition-duration: .3s;
+}
+
+.fa-search:hover {
+  color: $mainColor;
+}
+
+.header__cart {
+
+  margin-right: 22px;
+
+  div {
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+
+    .cart1,
+    .cart2 {
+      border: 2px solid transparent;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cart1 {
+      opacity: 100%;
+      display: block;
+      position: absolute;
+      transition-duration: 0.5s;
+    }
+
+    .cart2 {
+      height: 29px;
+      width: 32px;
+    }
+
+    .cart1:hover {
+      opacity: 0;
+    }
+  }
+}
+
+.drop_cart {
+  width: 300px;
+  border: 1px solid #e9e9e9;
+  background-color: #ffffff;
+  border-radius: 3px;
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 100;
+  padding: 10px 10px;
+
+  .drop_cart__total {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 8px;
+
+    p {
+      font-size: 16px;
+      font-weight: bold;
+      color: $subColorBlack;
+      text-transform: uppercase;
+      span{
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .drop_button{
+    width: 120px;
+    height: 70px;
+  }
+
+
+}
+
+
+
+
+.header__account-bar {
+  color: $subColorWhite;
+  font-size: 15px;
+  background-color: $mainColor;
+  padding: 0 12px 0 19px;
+  font-family: Lato;
+  font-weight: 200;
+  line-height: 32px;
+  letter-spacing: 0.38px;
+  text-decoration: none;
+  transition-duration: .3s;
+
+}
+
+.header__account-bar:hover {
+  background-color: $subColorWhite;
+  color: $mainColor;
+}
+
+/* НАВИГАЦИЯ */
+
+.topNav {
+  height: 51px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: Lato;
+
+  a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $subColorBlack;
+    transition-duration: .3s;
+  }
+
+  a:not(:last-child) {
+    margin-right: 48px;
+  }
+
+  a:hover {
+    color: $mainColor;
+  }
+}
