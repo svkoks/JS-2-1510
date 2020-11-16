@@ -1,3 +1,9 @@
-import App from './components';
+import Vue from 'vue'
 
-App();
+
+import App from 'App.vue';
+
+new Vue ({
+    render: h=>
+})
+
