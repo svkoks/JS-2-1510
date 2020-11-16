@@ -342,7 +342,6 @@ footer .description .naviBar .naviBarList .naviBarLetters {
   margin-left: 50px;
   width: 334px;
   height: 46px;
-  float: left;
   border: none;
   border-radius: 23px 0 0 23px;
   background-color: #e1e1e1;
@@ -470,6 +469,7 @@ footer .description .naviBar .naviBarList .naviBarLetters {
   width: inherit;
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
   font-size: 16px;
   line-height: 1.2;
   font-weight: 700;
@@ -500,10 +500,9 @@ footer .description .naviBar .naviBarList .naviBarLetters {
   border: 1px solid #eaeaea;
   text-decoration: none;
 }
-.header .headerCart .shoppingCart:hover .shoppingCartOpen {
+.header .headerCart .shoppingCart .shoppingCartOpen {
   width: 262px;
-  /*height: auto;*/
-  top: 31px;
+  top: 35px;
   position: absolute;
   display: block;
   background-color: white;
@@ -574,7 +573,7 @@ footer .description .naviBar .naviBarList .naviBarLetters {
   background-color: #f16d7f;
 }
 .topBanner .topBannerContent .topBannerText {
-  width: 505px;
+  width: 591px;
   height: 0;
   display: flex;
   flex-wrap: wrap;
@@ -584,18 +583,15 @@ footer .description .naviBar .naviBarList .naviBarLetters {
   height: 69px;
   font-size: 60px;
   font-weight: 900;
-  letter-spacing: 1.5px;
 }
 .topBanner .topBannerContent .topBannerText .ofLux {
   font-size: 40px;
   font-weight: 900;
-  letter-spacing: 1px;
 }
 .topBanner .topBannerContent .topBannerText .fashion {
   font-size: 40px;
   color: #f16d7f;
   font-weight: 900;
-  letter-spacing: 1px;
 }
 .topBanner .topBannerContent .topBannerImage {
   height: 613px;
@@ -702,7 +698,6 @@ footer .description .naviBar .naviBarList .naviBarLetters {
   margin-bottom: 115px;
 }
 .browseAllProductButton .browseAllProduct {
-  margin-left: 465px;
   padding: 13px 19px;
   background-color: #f16d7f;
   color: #ffffff;
@@ -790,13 +785,6 @@ footer .description .naviBar .naviBarList .naviBarLetters {
   font-size: 14px;
   font-weight: 300;
   line-height: 24px;
-}
-#accordionExample button:active,
-#accordionExample button:focus {
-  outline: none !important;
-}
-#accordionExample button::-moz-focus-inner {
-  border: 0 !important;
 }
 #accordionExample .card {
   border-top: none;
