@@ -1,5 +1,4 @@
 
-import BasketItem from './basketItem.js';
 import Goods from './goods.js';
 
 export default class Basket extends Goods {
@@ -10,17 +9,7 @@ export default class Basket extends Goods {
         this.type = 'basket';
     }
 
-    _render() {
-        let str = '';
-        let total_cost = 0;
-        this.items.forEach((item) => {
-            str += new BasketItem(item).render();
-            total_cost += +item.amount * +item.productPrice;
-        });
-        this.container.innerHTML = str;
-        this._sum(total_cost);
-    }
-    
+
     _handleEvents() {
         this.basket_link.addEventListener('click', e => {
             this.wrapper.classList.toggle('hidden');
@@ -32,20 +21,24 @@ export default class Basket extends Goods {
             }
         });
     }
+
+    _sum() {
+        let total_cost = 0;
+        this.items.forEach((item) => {
+            total_cost += +item.amount * +item.productPrice;
+        });
+        document.querySelector('#total-cost').innerText = `$${total_cost}.00`;
+    }
+
     _remove(id) {
         let find = this.items.find(item => item.productId == id);
         if (find.amount > 1) --find.amount;
         else this.items.splice(this.items.indexOf(find), 1);
         this._render();
     }
-    _sum(total_cost) {
-        document.querySelector('#total-cost').innerText = `$${total_cost}.00`;
-    }
 
     add(item) {
-        // console.log(item.productId);
         let find = this.items.find(basketItem => basketItem.productId == item.productId);
-
         if (!find) {
             item.amount = 1;
             this.items.push(item);

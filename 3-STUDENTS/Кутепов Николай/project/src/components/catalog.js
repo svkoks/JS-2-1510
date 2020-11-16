@@ -1,5 +1,4 @@
 
-import CatalogItem from './catalogItem.js';
 import Goods from './goods.js';
 
 export default class Catalog extends Goods {
@@ -22,11 +21,4 @@ export default class Catalog extends Goods {
         })
     }
 
-    _render() {
-        let str = "";
-        this.items.forEach( (element) => {
-             str += new CatalogItem(element).render();
-        })
-        this.container.innerHTML = str;
-        }
 }

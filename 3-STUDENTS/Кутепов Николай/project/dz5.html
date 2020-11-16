@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center !important;
+        }
+        div > input, div > textarea, div > button {
+            width: 400px;
+            min-height: 30px;
+            max-height: 140px;
+            margin-bottom: 10px;
+            line-height: 30px;
+            font-size: 20px;
+        }
+        .red-border {
+            border: 3px solid red;
+            margin: 5px;
+        }
+        .green-border {
+            border: 3px solid green;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="name">Введите своё имя</label>
+            <input type="text" placeholder="Имя по русски" size="20" id="name" name="имя">
+        </div>
+        <div>
+            <label for="phone">Введите телефон</label>
+            <input type="text" placeholder="+7(000)000-0000" size="20" id="phone" name="телефон">
+        </div>
+        <div>
+            <label for="email">Введите свою почту</label>
+            <input type="email" placeholder="вид mymail@mail.ru" size="20" id="email" name="е-мэйл">
+        </div>
+        <div>
+            <label for="text">Введите текст сообщения</label>
+            <textarea id="text" placeholder="Сообщение" id="" cols="30" rows="10" name="сообщение"></textarea>
+        </div>
+        <div>
+            <button type="button">Отправить данные</button>
+        </div>
+    </form>
+    <script>
+        
+        document.querySelector("#name").addEventListener('blur', () => {
+           let regExp = /^[а-яА-Я ]+$/gi;
+           let name = document.querySelector('#name');
+            if (name.value.match(regExp)) name.className = 'green-border';
+            else name.className = 'red-border';
+        });
+
+        document.querySelector("#phone").addEventListener('blur', () => {
+           let regExp = /^\+7\(\d{3}\)\d{3}-\d{4}$/;
+           let phone = document.querySelector('#phone');
+            if (phone.value.match(regExp)) phone.className = 'green-border';
+            else phone.className = 'red-border';
+        });
+
+        document.querySelector("#email").addEventListener('blur', () => {
+            let regExp = /^([a-z\d-_\.]+)@([a-z\d-\.]+)\.[a-z]{2,6}$/;
+            let email = document.querySelector('#email');
+            if (email.value.match(regExp)) email.className = 'green-border';
+            else email.className = 'red-border';
+        });
+
+        document.querySelector("#text").addEventListener('blur', () => {
+           let regExp = /^[а-яА-Яa-zA-Z\d-_ \.\,\:\;\?\*\s]+$/i;
+           let text = document.querySelector('#text');
+            if (text.value.match(regExp)) text.className = 'green-border';
+            else text.className = 'red-border';
+        });
+
+        document.querySelector("button").addEventListener('click', runCheck);
+        function runCheck() {
+            list = document.querySelectorAll('textarea, input');
+            list.forEach(element => {
+                if (element.className === 'red-border' ) {
+                    alert(element.name + ' не по формату');
+                }
+                else if (element.className !== 'green-border') {
+                    alert(element.name + ' заполните');
+                }
+            }); 
+        }
+    </script>
+</body>
+</html>
