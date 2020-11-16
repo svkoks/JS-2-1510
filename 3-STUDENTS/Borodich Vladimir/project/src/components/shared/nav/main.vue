@@ -14,7 +14,7 @@
 
 <script>
 import Item from './item';
-import { httpGet } from '@/services/http-service';
+import { Get } from '@/services/http-service';
 export default {
     components: {
         Item,
@@ -29,7 +29,7 @@ export default {
 
     methods: {
        async getItems(){
-          let item = await httpGet(this.url);
+          let item = await Get(this.url);
          this.listMenu = item ? item : [];
         }
     },

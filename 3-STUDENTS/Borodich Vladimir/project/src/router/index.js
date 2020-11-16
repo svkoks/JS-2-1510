@@ -5,6 +5,8 @@ import Catalog from '../views/Catalog.vue';
 import Product from '../views/Product.vue';
 import Cart from '../views/Cart.vue';
 import Checkout from '../views/Checkout.vue';
+import NotFoundPage from '../views/NotFoundPage.vue';
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -14,7 +16,7 @@ const routes = [
         component: Home,
     },
     {
-        path: '/product/:id/:name',
+        path: '/:category/product/:id/:name',
         name: 'Product',
         component: Product,
     },
@@ -29,11 +31,8 @@ const routes = [
         component: Checkout,
     },
     {
-        path: '/catalog/:id',
+        path: '/catalog/:category',
         name: 'Catalog',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: Catalog, //  () =>
         //     import(/* webpackChunkName: "about" */ "../views/Catalog.vue")
     },
@@ -41,12 +40,19 @@ const routes = [
         path: '/catalog',
         redirect: '/catalog/man',
     },
+    {
+        path: '/*',
+        component: NotFoundPage,
+    },
 ];
 
 const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes,
+    scrollBehavior() {
+        return { x: 0, y: 0 }
+    }
 });
 
 export default router;
