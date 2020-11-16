@@ -1,0 +1,56 @@
+[
+    {
+        "productName":"MANGO PEOPLE T-SHIRT",
+        "productPrice":52,
+        "productImg":"https://raw.githubusercontent.com/Eliasz-S/static/main/JS1_shop/man-item1.png",
+        "productId":"prod_8"
+    },
+    {
+        "productName":"BANANA PEOPLE T-SHIRT",
+        "productPrice":53,
+        "productImg":"https://raw.githubusercontent.com/Eliasz-S/static/main/JS1_shop/man-item2.png",
+        "productId":"prod_9"
+    },
+    {
+        "productName":"STRAWBERRY PEOPLE T-SHIRT",
+        "productPrice":55,
+        "productImg":"https://raw.githubusercontent.com/Eliasz-S/static/main/JS1_shop/man-item3.png",
+        "productId":"prod_10"
+    },
+    {
+        "productName":"ORANGE PEOPLE T-SHIRT",
+        "productPrice":67,
+        "productImg":"https://raw.githubusercontent.com/Eliasz-S/static/main/JS1_shop/man-item4.png",
+        "productId":"prod_11"
+    },
+    {
+        "productName":"PUMPKIN PEOPLE T-SHIRT",
+        "productPrice":69,
+        "productImg":"https://raw.githubusercontent.com/Eliasz-S/static/main/JS1_shop/man-item5.png",
+        "productId":"prod_12"
+    },
+    {
+        "productName":"PINEAPPLE PEOPLE T-SHIRT",
+        "productPrice":94,
+        "productImg":"https://raw.githubusercontent.com/Eliasz-S/static/main/JS1_shop/man-item6.png",
+        "productId":"prod_13"
+    },
+    {
+        "productName":"CUCUMBER PEOPLE T-SHIRT",
+        "productPrice":23,
+        "productImg":"https://raw.githubusercontent.com/Eliasz-S/static/main/JS1_shop/man-item7.png",
+        "productId":"prod_14"
+    },
+    {
+        "productName":"TOMATO PEOPLE T-SHIRT",
+        "productPrice":45,
+        "productImg":"https://raw.githubusercontent.com/Eliasz-S/static/main/JS1_shop/man-item8.png",
+        "productId":"prod_15"
+    },
+    {
+        "productName":"APPLE PEOPLE T-SHIRT",
+        "productPrice":45,
+        "productImg":"https://raw.githubusercontent.com/Eliasz-S/static/main/JS1_shop/man-item9.png",
+        "productId":"prod_16"
+    }
+]
