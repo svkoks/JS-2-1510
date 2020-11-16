@@ -3,14 +3,14 @@ let itemTypes = {
     catalog: catalogItemRenderer
 };
 
-export default class ITEM {
+export class ITEM {
     constructor(item, type) {
         this.item = item;
         this.type = type;
     }
 
     render(){
-        return itemTypes[this.type]()
+        return itemTypes[this.type](this.item);
     }
 }
 

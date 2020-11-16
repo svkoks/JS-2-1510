@@ -1,6 +1,6 @@
-import ITEM from './ITEM.js';
+import { ITEM } from './ITEM.js';
 
-export default class SHOP {
+export class SHOP {
     constructor(basket, container, url){
         this.items = [];
         this.basket = basket;

@@ -1,10 +1,11 @@
-import SHOP from './SHOP.js';
+import { SHOP } from './SHOP.js';
 
-export default class Basket extends SHOP{
+export class Basket extends SHOP{
 
     constructor(container = '#basket', url = '/basket.json', basket = null){
         super(basket, container, url);
         this.wrapper = document.querySelector('.drop-cart');
+        this.type = 'basket';
     }
 
     _handleEvents() {
