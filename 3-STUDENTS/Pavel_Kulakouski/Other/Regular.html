@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    input {
+        font-size: 60px;
+        margin: 10px;
+        width: 500px;
+        height: 70px;
+    }
+    p {
+        font-size: 25px;
+        margin: 10px;
+    }
+
+    </style>
+</head>
+<body>
+    <form>
+
+        <p> Имя содержит только буквы</p>
+        <input type="text" id="name"> <br>
+        <p>Телефон имеет вид +7(000)000-0000</p>
+        <input type="text" id="phone"> <br>
+        <p>E-mail имеет вид mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru</p>
+        <input type="text" id="email"> <br>
+        <p>Текст произвольный</p>
+        <input type="textarea" id="text"> <br>
+
+
+        <input type="submit" value="Send"> <br>
+
+    </form>
+
+
+
+
+    <script>
+        "use strict"
+        let formEl = document.querySelector('form');
+        let name = document.getElementById('name');
+        let phone = document.getElementById('phone');
+        let email = document.getElementById('email');
+        let text = document.getElementById('text');
+
+        formEl.addEventListener('submit', function sendForm (event) {
+            let regName = /^[a-zA-Z]+$/;
+            let regPhone = /^\+\d{1}\(?\d{3}\)?\d{3}\-?\d{4}$/;
+            let regEmail = /[a-zA-Z_\.\-0-9]+@[a-z]+\.ru$/;
+            let regText = /[a-zA-Z]/;
+            if (!regName.test(name.value)) {
+               alert('NONE');
+               name.style.borderColor = 'red';
+               event.preventDefault();
+            } else if (!regPhone.test(phone.value)) {
+               alert('NONE phone');
+               phone.style.borderColor = 'red';
+               event.preventDefault();
+            } else if (!regEmail.test(email.value)) {
+               alert('NONE email');
+               email.style.borderColor = 'red';
+               event.preventDefault();
+            } else if (!regText.test(text.value)) {
+               alert('only english text');
+               text.style.borderColor = 'red';
+               event.preventDefault();
+            }
+        })
+    </script>
+    
+</body>
+</html>
