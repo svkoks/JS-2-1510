@@ -1,9 +1,10 @@
-import SHOP from './SHOP.js';
+import { SHOP } from './SHOP.js';
 
-export default class Catalog extends SHOP{
+export class Catalog extends SHOP{
 
     constructor(basket, container, url){
         super(basket, container = '#catalog', url = '/catalog.json');
+        this.type = 'catalog';
     }
 
     _handleEvents() {

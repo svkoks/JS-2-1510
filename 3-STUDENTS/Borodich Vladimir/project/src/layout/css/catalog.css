@@ -1406,10 +1406,10 @@ input::-webkit-calendar-picker-indicator {
   width: 100%;
   position: absolute;
   -webkit-appearance: none;
-  height: 0.6rem;
+  height: 0rem;
   outline: none;
   background: transparent;
-  top: 0.2rem;
+  top: 3px;
   right: 0;
   left: 0;
 }
@@ -1425,16 +1425,19 @@ input::-webkit-calendar-picker-indicator {
   border-radius: 50%;
   cursor: pointer;
   background: #f16d7f;
-  z-index: -1;
+  z-index: 1;
+  position: relative;
 }
 
 .wrap .main .catalog-form__range-min::-moz-range-track {
   -webkit-appearance: none;
-  height: 0.6rem;
+  height: 0rem;
   background-color: #f16d7f;
   border-radius: 1rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  position: relative;
+  z-index: 0;
 }
 
 .wrap .main .catalog-form__range-min::-moz-range-thumb {
@@ -1445,12 +1448,13 @@ input::-webkit-calendar-picker-indicator {
   border: transparent;
   cursor: pointer;
   background: #f16d7f;
-  z-index: -1;
+  z-index: 9999;
+  position: relative;
 }
 
 .wrap .main .catalog-form__range-min::-moz-range-progress {
   background-color: #f0f0f0;
-  height: 0.6rem;
+  height: 0rem;
   border-radius: 1rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -1488,10 +1492,10 @@ input::-webkit-calendar-picker-indicator {
   width: 100%;
   position: absolute;
   -webkit-appearance: none;
-  height: 0.6rem;
+  height: 0rem;
   outline: none;
   background: transparent;
-  top: 0.2rem;
+  top: 3px;
   right: 0;
   left: 0;
 }
@@ -1507,16 +1511,19 @@ input::-webkit-calendar-picker-indicator {
   border-radius: 50%;
   cursor: pointer;
   background: #f16d7f;
-  z-index: -1;
+  z-index: 1;
+  position: relative;
 }
 
 .wrap .main .catalog-form__range-max::-moz-range-track {
   -webkit-appearance: none;
-  height: 0.6rem;
+  height: 0rem;
   background-color: #f0f0f0;
   border-radius: 1rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  position: relative;
+  z-index: 0;
 }
 
 .wrap .main .catalog-form__range-max::-moz-range-thumb {
@@ -1527,12 +1534,13 @@ input::-webkit-calendar-picker-indicator {
   border: transparent;
   cursor: pointer;
   background: #f16d7f;
-  z-index: -1;
+  z-index: 9999;
+  position: relative;
 }
 
 .wrap .main .catalog-form__range-max::-moz-range-progress {
   background-color: #f16d7f;
-  height: 0.6rem;
+  height: 0rem;
   border-radius: 1rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;

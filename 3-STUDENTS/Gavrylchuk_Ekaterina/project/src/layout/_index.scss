@@ -1,0 +1,421 @@
+@import "variables";
+
+/*ВЕРХНИЙ БАННЕР*/
+
+.index__topBanner {
+  background-color: #e8e8e8;
+
+  .topBanner-content {
+    position: relative;
+    height: 655px;
+    background-color: #e8e8e8;
+    background-image: url(https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_TopBanner.png);
+    background-position: 555px 0;
+    background-size: 52%;
+    background-repeat: no-repeat;
+
+    .topBanner-text {
+      position: absolute;
+      height: 92px;
+      margin-top: 226px;
+      border-left: 12px solid $mainColor;
+
+      h1 {
+        margin: 0px 0px 0px 12px;
+        color: $subColorBlack;
+        font-family: Lato;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 60px;
+        letter-spacing: 1.5px;
+        line-height: 44px;
+      }
+
+      h2 {
+        margin: 0px 0px 0px 12px;
+        white-space: nowrap;
+        font-family: Lato;
+        font-size: 40px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 65px;
+      }
+
+      h2 span {
+        color: $mainColor;
+      }
+    }
+  }
+}
+
+
+/*СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ/СКИДКИ*/
+
+.index__specialOffers {
+  margin-top: 98px;
+
+  .specialOffers-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 823px;
+    align-content: space-between;
+    justify-content: space-between;
+
+    div {
+      div:nth-child(1) {
+        position: relative;
+        float: left;
+      }
+
+      div:nth-child(2) {
+        position: absolute;
+        background-color: $subColorWhite;
+        margin-top: 26px;
+      }
+    }
+
+    .wallet {
+      width: 560px;
+      height: 261px;
+      background-image: url("https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_SpecialOffers_Back.svg");
+
+      img {
+        margin-left: 149px;
+      }
+    }
+
+    .specialOffers-offer {
+      div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 82px;
+
+        a {
+          display: flex;
+          flex-direction: column;
+          text-decoration: none;
+          transition-duration: .5s;
+
+          p {
+            margin-left: 19px;
+            margin-right: 20px;
+            white-space: nowrap;
+            color: $subColorBlack;
+            font-family: Lato;
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.45px;
+          }
+
+          span {
+            display: flex;
+            white-space: normal;
+            font-size: 30px;
+            font-weight: 700;
+            color: $mainColor;
+
+          }
+        }
+
+        a:hover {
+          background-color: $mainColor;
+
+          p,
+          span {
+            color: $subColorWhite;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*FEATURED ITEMS*/
+
+  .featured-text {
+    h2 {
+      color: $subColorBlack;
+      font-family: Lato;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.75px;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    p {
+      color: #9f9f9f;
+      font-family: Lato;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.35px;
+      text-align: center;
+    }
+  }
+
+  .featured-products {
+    width: 1140px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    margin-top: 50px;
+
+    .featured-item {
+      margin-bottom: 39px;
+
+      .featured-picture {
+        position: relative;
+        float: left;
+
+        a {
+          color: $subColorBlack;
+          font-family: Lato;
+          font-size: 13px;
+          font-weight: 400;
+          text-transform: uppercase;
+          text-decoration: none;
+
+          p:nth-child(2) {
+            color: $subColorBlack;
+            font-family: Lato;
+            font-size: 13px;
+            font-weight: 400;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-left: 15px;
+          }
+
+          p:nth-child(3) {
+            color: $mainColor;
+            font-family: "Lato";
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-left: 15px;
+          }
+        }
+      }
+
+      .featured-hover {
+        position: absolute;
+        float: left;
+        opacity: 0%;
+        animation-duration: .5s;
+        transition-duration: .5s;
+
+        .hover-picture {
+          position: relative;
+          float: left;
+
+          a p {
+            opacity: 0%
+          }
+        }
+
+        .button {
+          position: absolute;
+          float: left;
+          width: 130px;
+          height: 39px;
+          margin-top: 98px;
+          margin-left: 63px;
+          border: 1px solid $subColorWhite;
+          text-align: center;
+          animation-duration: .3s;
+          transition-duration: .3s;
+
+
+          a {
+            display: flex;
+            justify-content: center;
+            white-space: nowrap;
+            color: $subColorWhite;
+            font-family: Lato;
+            font-size: 13px;
+            font-weight: 400;
+            text-decoration: none;
+            line-height: 40px;
+            transition-duration: .3s;
+
+            div {
+              position: relative;
+              float: left;
+              height: 22px;
+
+              img {
+                margin-top: 8px;
+                margin-right: 5px;
+                width: 24px;
+                transition-duration: .3s;
+              }
+
+              div {
+                img {
+                  position: absolute;
+                  width: 24px;
+                  opacity: 0%;
+
+                }
+              }
+            }
+          }
+
+          a:hover {
+            color: $mainColor;
+
+
+            div {
+              img {
+                opacity: 0%;
+              }
+
+              div img {
+                opacity: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .featured-hover:hover {
+        position: absolute;
+        opacity: 100%;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16);
+      }
+    }
+  }
+
+  .featured-browse {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    a {
+      margin-top: 75px;
+      margin-left: 24px;
+      height: 48px;
+      width: 212px;
+      background-color: $mainColor;
+      color: $subColorWhite;
+      font-family: Lato;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 54px;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+      text-align: center;
+      transition-duration: .5s;
+    }
+
+    a:hover {
+      font-weight: 700;
+      outline: 1px solid #eaeaea;
+      background-color: $subColorWhite;
+      color: $mainColor;
+    }
+  }
+ 
+/*НИЖНИЙ БАННЕР*/
+
+.index__lowerBanner {
+  height: 529px;
+  margin-top: 113px;
+  display: flex;
+  background-image: url(https://raw.githubusercontent.com/katinaskatina/GB_JS_Project_1_Images/main/GB_JS_Lower_Banner_Back.jpg);
+  background-size: auto;
+  background-repeat: no-repeat;
+
+  .lowerBanner-content {
+    display: flex;
+
+    .lowerBanner-left {
+
+      img {
+        position: relative;
+        float: left;
+      }
+
+      .lowerBanner-left-text {
+        position: absolute;
+        margin-top: 146px;
+        margin-left: 39px;
+        white-space: nowrap;
+
+        h2 {
+          margin: 0;
+          padding: 0;
+          color: $subColorWhite;
+          font-family: Lato;
+          font-size: 54px;
+          font-weight: 700;
+          text-transform: uppercase;
+          line-height: 0px;
+
+          span {
+            color: $mainColor;
+            letter-spacing: 1.5px;
+            font-family: Lato;
+            font-size: 54px;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+        }
+
+        h2:nth-child(2) {
+          margin: 0;
+          padding: 0;
+          color: $subColorWhite;
+          font-family: Lato;
+          font-size: 32px;
+          letter-spacing: 0.9px;
+          font-weight: 400;
+          text-transform: uppercase;
+          line-height: 90px;
+        }
+      }
+    }
+
+    .lowerBanner-right {
+      width: 373px;
+      height: 529px;
+      background-color: #222224;
+
+      .lowerBanner-right-paragraph {
+        display: flex;
+        margin-top: 48px;
+        margin-left: 38px;
+        padding-right: 10px;
+
+        h3 {
+          margin: 0;
+          padding-left: 37px;
+          padding-bottom: 5px;
+          color: #fbfbfb;
+          font-family: Lato;
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+        }
+
+        p {
+          margin: 0;
+          padding-left: 37px;
+          color: #fbfbfb;
+          font-family: Lato;
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 24px;
+          letter-spacing: 0.35px;
+        }
+      }
+    }
+  }
+}
+
+

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    <div id="app">
     <div class="header container">
         <div class="header__left">
             <a class="header__logo" href="index.html">
@@ -20,21 +21,65 @@
             </form>
         </div>
         <div class="header__right">
-            <a href="#" id="basket-link" name="basket-link">
+            <a 
+                href="#" 
+                id="basket-link" 
+                name="basket-link"
+                @click="basket.show = !basket.show"
+            >
                 <img src="../src/assets/img/kart.png" alt="order">
                 <div class="header__right-qty">2</div>
             </a>
             <a href="checkout.html">My Account <i class="fas fa-caret-down"></i></a>
                             <!-- .basket div is here -->
-                <div class="basket hidden" id="basket">
+                
+                    <div 
+                        class="basket" 
+                        id="basket" 
+                        v-show="basket.show"
+                    >
                     <i class="fas fa-chevron-up"></i>
                                 
                     <!-- .basket-list -->
-                    <div class="basket-list" id="basket-list"></div>
+                    <div class="basket-list" id="basket-list">
+
+                        <div 
+                          class="basket__item"
+                          v-for="item of basket.items"
+                          :key="item.productId"
+                        >
+                            <img :src="item.productImg" alt="item1">
+                            <div class="basket__item-about">
+                                <h3>{{ item.productName }}</h3>
+                                <div class="hot-offer__stars-basket">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="amount-price">
+                                    <span id="amount-item">{{ item.amount }}</span>&nbsp;
+                                    x &nbsp;$
+                                    <span id="price-item">{{ item.productPrice }}.00</span>
+                                </div>
+                            </div>
+                            <a 
+                              href="#" 
+                              name="remove" 
+                              v-bind:data-id=item.productId 
+                              @click="remove(item.productId)"
+                            >
+                              <i class="fas fa-times-circle"></i>
+                            </a>
+                        </div>
+                    </div>
 
                 <div class="basket__total">
                     <span>total</span>
-                    <span id="total-cost"></span>
+                    <span id="total-cost">
+                      {{ basket.sum }}
+                    </span>
                 </div>
                 <button class="basket-button red-button">checkout</button>
                 <button class="basket-button black-button">go to cart</button>
@@ -119,7 +164,38 @@
             <h4>Shop for items based on what we featured in this week</h4>
         </div>
 
-        <div id="catalog" class="catalog"><!-- CATALOG IS HERE --></div>
+        <div id="catalog" class="catalog">  <!-- CATALOG IS HERE -->
+           
+            <div 
+                class="hot-offer"
+                v-for="item of catalog.items"
+                :key="item.productId"
+            
+            >
+                <div class="hot-offer__shadow">
+                    <img :src="item.productImg" alt="t-shirt">
+                    <div class="hot-offer__hover">
+                        <div class="hot-offer__square">
+                            <button 
+                            name="add-to-cart"
+                            @click="add(item)"
+                            ><img src="../src/assets/img/kart_white.png" alt="order">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <a href="single.html">{{ item.productName }}</a>
+                <h3>
+                    ${{ item.productPrice }}.00
+                    <div class="hot-offer__stars">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </h3>
+                </div>
+        </div>
 
         <div class="featured-items__undertitle">
             <a href="#">Browse All Product <i class="fas fa-long-arrow-alt-right"></i></a>
@@ -237,7 +313,9 @@ a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”<
             </div>
         </div>
     </div>
-    <script src="../src/components/basket.js"></script>
-    <script src="../src/components/catalog.js"></script>
+</div>          <!-- end of .app -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
 </body>
 </html>

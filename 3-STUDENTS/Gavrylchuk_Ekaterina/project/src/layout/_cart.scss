@@ -1,0 +1,333 @@
+@import "variables";
+
+/*НАЗВАНИЯ СТОЛБЦОВ*/
+
+.shoppingCart-details {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 90px;
+
+  p {
+    color: $subColorBlack;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: -0.2px;
+  }
+
+  .shoppingCart-details-left {
+    width: 466px;
+  }
+
+  .shoppingCart-details-right {
+    display: flex;
+    width: 674px;
+
+
+    p {
+      width: 20%;
+      text-align: center;
+    }
+  }
+}
+
+
+/*СОДЕРЖИМОЕ КОРЗИНЫ*/
+
+.cart-row {
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  height: 140px;
+
+  .cart-row_left {
+    display: flex;
+    width: 466px;
+
+    .cart-product {
+      height: 115px;
+
+      a img {
+        transition-duration: .3s;
+      }
+
+      a:hover img {
+        opacity: 80%;
+      }
+    }
+
+    .cart-pic {
+      background-color: #f1f7fa;
+    }
+
+    .cart-text {
+      margin-left: 21px;
+
+      a {
+        color: $subColorBlack;
+        font-family: Lato;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 50px;
+        text-decoration: none;
+        transition-duration: .3s;
+      }
+
+      a:hover {
+        color: $mainColor;
+      }
+
+      p {
+        color: #6f6e6e;
+        font-family: Lato;
+        font-size: 13px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+
+        span {
+          line-height: 30px;
+          margin-left: 7px;
+          color: #6f6e6e;
+          font-size: 13px;
+          font-family: Lato;
+          font-weight: 300;
+          text-transform: none;
+
+        }
+      }
+    }
+  }
+
+  .cart-row-right {
+    display: flex;
+    width: 674px;
+    height: 115px;
+    margin-top: 22px;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+    }
+
+    input {
+      width: 54px;
+      height: 30px;
+      border: 1px solid #eaeaea;
+      outline: none;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    i {
+      color: #c0c0c0;
+      transition-duration: .3s;
+    }
+
+    i:hover {
+      color: #f16d7f;
+    }
+  }
+}
+
+
+/*КНОПКИ КОРЗИНЫ*/
+
+.shoppingCart-buttons {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    width: 235px;
+    height: 50px;
+    margin-top: 40px;
+    background-color: $subColorWhite;
+    text-align: center;
+    border: 1px solid #eaeaea;
+    transition-duration: .3s;
+    color: #4a4a4a;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition-duration: .3s;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: $mainColor;
+    color: $subColorWhite;
+  }
+
+}
+
+
+/*ФОРМЫ ОТПРАВКИ*/
+
+.cart__form {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 63px;
+
+  h3 {
+    color: $subColorBlack;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  input {
+    margin: 0px 0px 20px 0px;
+    width: 330px;
+    height: 45px;
+    padding-left: 18px;
+    color: $subColorBlack;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 300;
+    outline: none;
+  }
+
+  a {
+    width: 145px;
+    height: 35px;
+    border: 1px solid #eaeaea;
+    background-color: $subColorWhite;
+    color: #4a4a4a;
+    font-family: Lato;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 39px;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+.address,
+.discount {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 160px;
+    line-height: 35px;
+    transition-duration: .3s;
+    background-color: $subColorWhite;
+    color: $subColorBlack;
+    border: 1px solid #eaeaea;
+    font-family: Lato;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition-duration: .3s;
+  }
+
+  button:hover {
+    background-color: $mainColor;
+    color: $subColorWhite;
+    cursor: pointer;
+  }
+
+  p {
+    color: $subColorBlack;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+
+.total {
+  margin-top: 63px;
+  width: 360px;
+  height: 214px;
+  background-color: #f5f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  div:nth-child(1) {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    p:nth-child(1) {
+      color: #4a4a4a;
+      font-family: Lato;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+
+      span {
+        margin-left: 30px;
+        margin-right: 20px;
+      }
+    }
+
+    p:nth-child(2) {
+      display: inline-block;
+      color: $subColorBlack;
+      font-family: Lato;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 0px;
+
+      span {
+        margin-left: 30px;
+        margin-right: 20px;
+        color: $mainColor;
+      }
+    }
+  }
+
+  button {
+    align-self: center;
+    margin-top: 17px;
+    width: 273px;
+    height: 50px;
+    line-height: 35px;
+    transition-duration: .3s;
+    background-color: $mainColor;
+    color:  $subColorWhite;
+    border: 1px solid #eaeaea;
+    font-family: Lato;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition-duration: .3s;
+  }
+
+  button:hover {
+    background-color: $subColorWhite;
+    color: $mainColor;
+    cursor: pointer;
+  }
+
+  .cart__line {
+    width: 275px;
+    height: 1px;
+    background-color: #e2e2e2;
+    align-self: center;
+  }
+}
+
+

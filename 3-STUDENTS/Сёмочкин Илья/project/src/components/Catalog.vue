@@ -9,23 +9,21 @@
             />
             
         </div>
-        <div class="featured-items__button">
-            <a href="#">Browse All Product <i class="fas fa-long-arrow-alt-right"></i></a>
-        </div>
     </div>
 </template>
 
 <script>
 
 import { get } from '@/core/requests'
-import Item from './CatalogItem'
+import Item from './Item.vue'
 
 export default {
     components: { Item },
     data() {
         return {
             items: [],
-            url: 'https://raw.githubusercontent.com/Eliasz-S/static/main/JSON/catalog.json',
+            // url: 'https://raw.githubusercontent.com/Eliasz-S/static/main/JSON/catalog.json',
+            url: '/api/catalog',
         }
     },
     async mounted() {

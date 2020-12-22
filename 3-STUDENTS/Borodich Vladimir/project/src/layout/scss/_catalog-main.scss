@@ -184,10 +184,10 @@
                     width: 100%;
                     position: absolute;
                     -webkit-appearance: none;
-                    height: 0.6rem;
+                    height: 0rem;
                     outline: none;
                     background: transparent;
-                    top: 0.2rem;
+                    top: 3px;
                     right: 0;
                     left: 0;
 
@@ -202,16 +202,19 @@
                         border-radius: 50%;
                         cursor: pointer;
                         background: $extra-color;
-                        z-index: -1;
+                         z-index: 1;
+                        position: relative;
                     }
 
                     &::-moz-range-track {
                         -webkit-appearance: none;
-                        height: 0.6rem;
+                        height: 0rem;
                         background-color: $extra-color;
                         border-radius: 1rem;
                         border-top-right-radius: 0;
                         border-bottom-right-radius: 0;
+                        position: relative;
+                        z-index: 0;
                     }
 
                     &::-moz-range-thumb {
@@ -222,12 +225,13 @@
                         border: transparent;
                         cursor: pointer;
                         background: $extra-color;
-                        z-index: -1;
+                         z-index: 9999;
+                         position: relative;
                     }
 
                     &::-moz-range-progress {
                         background-color: #f0f0f0;
-                        height: 0.6rem;
+                        height: 0rem;
                         border-radius: 1rem;
                         border-top-right-radius: 0;
                         border-bottom-right-radius: 0;
@@ -262,10 +266,10 @@
                     width: 100%;
                     position: absolute;
                     -webkit-appearance: none;
-                    height: 0.6rem;
+                    height: 0rem;
                     outline: none;
                     background: transparent;
-                    top: 0.2rem;
+                    top: 3px;
                     right: 0;
                     left: 0;
 
@@ -280,16 +284,19 @@
                         border-radius: 50%;
                         cursor: pointer;
                         background: $extra-color;
-                        z-index: -1;
+                        z-index: 1; 
+                        position: relative;
                     }
 
                     &::-moz-range-track {
                         -webkit-appearance: none;
-                        height: 0.6rem;
+                        height:0rem;
                         background-color: #f0f0f0;
                         border-radius: 1rem;
                         border-top-left-radius: 0;
                         border-bottom-left-radius: 0;
+                        position: relative;
+                        z-index: 0;
                     }
 
                     &::-moz-range-thumb {
@@ -300,12 +307,13 @@
                         border: transparent;
                         cursor: pointer;
                         background: $extra-color;
-                        z-index: -1;
+                        z-index: 9999;
+                        position: relative;
                     }
 
                     &::-moz-range-progress {
                         background-color: $extra-color;
-                        height: 0.6rem;
+                        height: 0rem;
                         border-radius: 1rem;
                         border-top-left-radius: 0;
                         border-bottom-left-radius: 0;

@@ -1,3 +1,5 @@
+import BasketItem from "./basketItem.js";
+
 export default class Basket {
     constructor(container = '#basket', url = '/basket.json') {
         this.items = [];
@@ -58,29 +60,7 @@ export default class Basket {
     _render() {
         let htmlStr = '';
         this.items.forEach((item) => {
-            htmlStr += `
-            <div class="drop-cart__product">
-                <a href="product.html" class="drop-cart__product-link">
-                    <img src="${item.productImg}"
-                        alt="product" class="drop-cart__product-img">
-                </a>
-                <div class="drop-cart__product-info">
-                    <a href="product.html" class="drop-cart__product-name">${item.productName}</a>
-                    <div class="drop-cart__product-stars">
-                        <i class="${item.stars > "0" ? "fas" : "far"} ${item.stars === "0.5" ? "fa-star-half-alt" : "fa-star"}"></i>
-                        <i class="${item.stars > "1" ? "fas" : "far"} ${item.stars === "1.5" ? "fa-star-half-alt" : "fa-star"}"></i>
-                        <i class="${item.stars > "2" ? "fas" : "far"} ${item.stars === "2.5" ? "fa-star-half-alt" : "fa-star"}"></i>
-                        <i class="${item.stars > "3" ? "fas" : "far"} ${item.stars === "3.5" ? "fa-star-half-alt" : "fa-star"}"></i>
-                        <i class="${item.stars > "4" ? "fas" : "far"} ${item.stars === "4.5" ? "fa-star-half-alt" : "fa-star"}"></i>
-                    </div>
-                    <div class="drop-cart__product-price">
-                        <span class="drop-cart__product-count">${item.amount} </span> x ${item.productPrice}
-                        <span class="drop-cart__product-sum"> = $${item.productPrice * item.amount}</span>
-                    </div>
-                </div>
-                <a href="#" data-id="${item.productId}" name="remove" class="drop-cart__product-close far fa-times-circle"></a>
-            </div>
-        `;
+            htmlStr += new BasketItem(item).render();
         });
         this.container.innerHTML = htmlStr;
     }
